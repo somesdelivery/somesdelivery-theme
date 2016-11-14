@@ -43,3 +43,19 @@ a {
 	max-width: 60em;
 	margin: 0 auto;
 }
+
+header {
+	text-align: center;
+}
+
+nav ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+}
+
+nav a {
+	color: #555;
+}
