@@ -28,11 +28,20 @@ class StarterSite extends TimberSite {
 	}
 
 	function register_post_types() {
-		//this is where you can register custom post types
+		register_post_type('proiecte', array(
+			'labels' => array(
+				'name' => __('Proiecte'),
+				'singular_name' => __('Proiect')
+			),
+			'public' => true,
+			'has_archive' => true,
+			'hierarchical' => true,
+			'supports' => array( 'title', 'editor', 'thumbnail', 'excerpt', 'custom-fields', 'page-attributes')
+		));
 	}
 
 	function register_taxonomies() {
-		//this is where you can register custom taxonomies
+		// this is where you can register custom taxonomies
 	}
 
 	function add_to_context( $context ) {
