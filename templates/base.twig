@@ -9,9 +9,11 @@
 	<body class="{{body_class}}" data-template="base.twig">
 		<header class="header" >
 			{% block header %}
-				<div class="wrapper">
+				<div class="container">
 					<h1 class="hdr-logo" role="banner">
-						<a class="hdr-logo-link" href="{{site.url}}" rel="home">{{site.name}}</a>
+						<a class="hdr-logo-link" href="{{site.url}}" rel="home">
+							<img src='{{site.theme.link}}/static/svg/somes-delivery-light.svg' alt='{{site.name}}'>
+						</a>
 					</h1>
 					<nav id="nav-main" class="nav-main" role="navigation">
 						{% include "menu.twig" with {'menu': menu.get_items} %}
@@ -22,7 +24,7 @@
 
 		<section id="content" role="main" class="content-wrapper">
 			{% if title %}<h1>{{title}}</h1>{% endif %}
-			<div class="wrapper {{sidebar_class}}">
+			<div class="container {{sidebar_class}}">
 				{% block content %}
 					Sorry, no content
 				{% endblock %}
@@ -36,7 +38,9 @@
 
 		{% block footer %}
 			<footer id="footer">
-				{% include 'footer.twig' %}
+				<div class='container'>
+					{% include 'footer.twig' %}
+				</div>
 			</footer>
 			{{ function('wp_footer') }}
 		{% endblock %}
