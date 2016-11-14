@@ -4,7 +4,10 @@
 	<div class="content-wrapper">
 		<article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
 			<section class="article-content">
-				<h1 class="article-title">{{post.get_field('titlu')}}</h1>
+				<div class='article-meta'>
+					<h1 class="article-title">{{post.get_field('titlu')}}</h1>
+					<p>Ediția: {{ post.get_field('editia') }} </p>
+				</div>
 				<div class="article-body">
 					{{post.get_field('descriere')}}
 				</div>

@@ -28,6 +28,7 @@ body {
 	margin: 0;
 	line-height: 1.4;
 	padding: 1em;
+	color: #333;
 }
 
 input, select, textarea {
@@ -49,6 +50,10 @@ header {
 	padding: 1em 0;
 }
 
+.header-logo img {
+	height: 5em;
+}
+
 footer {
 	text-align: center;
 	font-size: 0.9em;
@@ -56,12 +61,21 @@ footer {
 	padding: 1em 0;
 }
 
+/*
+	MAIN NAVIGATION 
+	--------------------------------------
+*/
+
+nav {
+	font-size: 0.8em;
+}
+
 nav ul {
 	list-style: none;
 	margin: 0;
 	padding: 0;
 	text-transform: uppercase;
-	letter-spacing: 0.1em;
+	letter-spacing: 0.2em;
 }
 
 nav li {
@@ -71,9 +85,35 @@ nav li {
 
 nav a {
 	color: #555;
+	display: block;
+	padding: 0.25em 0;
+}
+
+.current-menu-item > a {
+
+	font-weight: bold;
+	border-bottom: 2px solid currentColor;
 }
 
 
+article h1 {
+	font-size: 5em;
+	font-weight: normal;
+	letter-spacing: -0.02em;
+	margin: 0;
+	line-height: 1;
+}
+
+.article-meta {
+	/*text-align: center;*/
+	margin: 1em 0;
+}
+
+.post-type-proiecte .article-body {
+	max-width: 25em;
+	font-size: 1.2em;
+	margin: 2em 0;
+}
 
 /* 
 	GALLERY
