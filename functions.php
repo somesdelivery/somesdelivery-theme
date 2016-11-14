@@ -38,6 +38,8 @@ class StarterSite extends TimberSite {
 			'hierarchical' => true,
 			'supports' => array( 'title', 'editor', 'thumbnail', 'excerpt', 'custom-fields', 'page-attributes')
 		));
+
+		// flush_rewrite_rules();
 	}
 
 	function register_taxonomies() {

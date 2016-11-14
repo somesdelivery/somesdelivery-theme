@@ -72,3 +72,28 @@ nav li {
 nav a {
 	color: #555;
 }
+
+
+
+/* 
+	GALLERY
+	------------------------------------
+*/
+
+.project-gallery {}
+
+.project-gallery-item {
+	margin: 1em 0;
+	padding: 0;
+}
+
+.project-gallery-item img {
+	max-width: 100%;
+	display: block;
+}
+
+.project-gallery-item figcaption {
+	font-size: 0.9em;
+	color: #555;
+	margin: 1em 0;
+}
