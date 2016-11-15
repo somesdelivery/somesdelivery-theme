@@ -25,6 +25,7 @@ class StarterSite extends TimberSite {
 		add_filter( 'get_twig', array( $this, 'add_to_twig' ) );
 		add_action( 'init', array( $this, 'register_post_types' ) );
 		add_action( 'init', array( $this, 'register_taxonomies' ) );
+		add_action('acf/init', array( $this, 'advanced_custom_fields_init'));
 		parent::__construct();
 	}
 
@@ -35,6 +36,11 @@ class StarterSite extends TimberSite {
 
 	function register_taxonomies() {
 		$this->register_taxonomy_categorie_proiect();
+	}
+
+	function advanced_custom_fields_init() {
+		// register Google API key to be able to use the Google Map custom field
+		acf_update_setting('google_api_key', 'AIzaSyDhQhOG5CLH0Ccn7H4EdJCkwMyggfkOePo');
 	}
 
 	function add_to_context( $context ) {

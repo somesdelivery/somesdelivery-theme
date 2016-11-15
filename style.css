@@ -111,9 +111,9 @@ article h1 {
 }
 
 .post-type-proiect .article-body {
-	max-width: 25em;
-	font-size: 1.2em;
+	font-size: 2em;
 	margin: 2em 0;
+	text-align: center;
 }
 
 /* 

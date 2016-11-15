@@ -33,6 +33,9 @@ if ( is_day() ) {
 } else if ( is_post_type_archive() ) {
 	$context['title'] = post_type_archive_title( '', false );
 	array_unshift( $templates, 'archive-' . get_post_type() . '.twig' );
+} else if ( is_tax() ) {
+	$context['title'] = single_term_title( '', false );
+	array_unshift( $templates, 'archive-' . get_queried_object()->taxonomy . '.twig');
 }
 
 $context['posts'] = Timber::get_posts();
