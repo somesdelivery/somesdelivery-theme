@@ -29,6 +29,7 @@ body {
 	line-height: 1.4;
 	padding: 1em;
 	color: #333;
+	font-weight: 300;
 }
 
 input, select, textarea {
@@ -51,7 +52,7 @@ header {
 }
 
 .header-logo img {
-	height: 5em;
+	height: 3em;
 }
 
 footer {
@@ -98,14 +99,14 @@ nav a {
 
 article h1 {
 	font-size: 5em;
-	font-weight: normal;
+	font-weight: 300;
 	letter-spacing: -0.02em;
 	margin: 0;
 	line-height: 1;
 }
 
 .article-meta {
-	/*text-align: center;*/
+	text-align: center;
 	margin: 1em 0;
 }
 
@@ -123,8 +124,9 @@ article h1 {
 .project-gallery {}
 
 .project-gallery-item {
-	margin: 1em 0;
+	margin: 0;
 	padding: 0;
+	width: 100%;
 }
 
 .project-gallery-item img {
@@ -138,12 +140,22 @@ article h1 {
 	margin: 1em 0;
 }
 
-.project-category {
+.project-meta {
+	list-style: none;
+	margin: 1em 0;
+	padding: 0;
+}
+
+.project-meta li {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.project-meta span {
 	font-family: 'Bebas Kai';
 	font-weight: normal;
-	font-size: 1.4em;
-	position: relative;
-	z-index: 1;
+	display: inline-block;
+	margin-right: 0.25em;
 }
 
 /* PROIECTE

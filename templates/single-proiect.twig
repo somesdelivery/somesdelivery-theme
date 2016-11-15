@@ -6,8 +6,12 @@
 			<section class="article-content">
 				<div class='article-meta project-meta'>
 					{% set categorie = TimberTerm(post.get_field('categorie_proiect')) %}
-					<div class='project-category'><a href='{{categorie.link}}'>{{ categorie.title }}</a></div>
 					<h1 class="article-title">{{post.title }}</h1>
+					<ul class='project-meta'>
+						<li><span>Ediția</span> 2016</li>
+						<li><span>Tip</span> <a href='{{categorie.link}}'>{{ categorie.title }}</a></li>
+						<li><span>Echipa</span> {{ post.get_field('echipa') }}</li>
+					</ul>
 				</div>
 				<div class="article-body">
 					{{post.content}}
@@ -16,7 +20,7 @@
 				<div class='project-gallery'>
 					{% for image in post.get_field('galerie') %}
 					<figure class='project-gallery-item'>
-					    <img src="{{ TimberImage(image) }}" />
+					    <img src="{{ TimberImage(image).src | resize(1600) }}" />
 					    <figcaption>{{image.caption}}</figcaption>
 					</figure>
 					{% endfor %}

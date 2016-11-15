@@ -4,7 +4,7 @@
 	
 	{% if post.thumbnail.src %}
 		<a href="{{post.link}}">
-			<img src="{{post.thumbnail.src}}" alt='{{post.title}}'/>
+			<img src="{{post.thumbnail.src | letterbox(600, 400) }}" alt='{{post.title}}'/>
 		</a>
 	{% endif %}
 	<h2 class="h2">
