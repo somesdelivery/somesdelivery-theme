@@ -12,6 +12,10 @@ This is the Wordpress theme for [Someș Delivery](http://somesdelivery.ro). It b
 
 > Custom fields. Made easy.
 
+#### Facebook Open Graph, Google+ and Twitter Card Tags ([website](https://wordpress.org/plugins/wonderm00ns-simple-facebook-open-graph-tags/))
+
+> Inserts Facebook Open Graph, Google+/Schema.org, Twitter and SEO Meta Tags into your WordPress Website for more efficient sharing results. 
+
 ## Custom post types
 
 #### Proiect
