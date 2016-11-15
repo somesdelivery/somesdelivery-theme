@@ -43,7 +43,28 @@ class StarterSite extends TimberSite {
 	}
 
 	function register_taxonomies() {
-		// this is where you can register custom taxonomies
+		 // $labels = [
+	  //       'name'              => _x('Ediții', 'taxonomy general name'),
+	  //       'singular_name'     => _x('Ediție', 'taxonomy singular name'),
+	  //       'search_items'      => __('Caută ediții'),
+	  //       'all_items'         => __('Toate edițiile'),
+	  //       'parent_item'       => __('Ediție părinte'),
+	  //       'parent_item_colon' => __('Ediție părinte:'),
+	  //       'edit_item'         => __('Editează ediție'),
+	  //       'update_item'       => __('Actualizează ediție'),
+	  //       'add_new_item'      => __('Adaugă ediție nouă'),
+	  //       'new_item_name'     => __('Nume nou ediție'),
+	  //       'menu_name'         => __('Ediție'),
+	  //   ];
+	  //   $args = [
+	  //       'hierarchical'      => false,
+	  //       'labels'            => $labels,
+	  //       'show_ui'           => true,
+	  //       'show_admin_column' => true,
+	  //       'query_var'         => true,
+	  //       'rewrite'           => ['slug' => 'editie'],
+	  //   ];
+   //  	register_taxonomy('editie', ['proiecte'], $args);
 	}
 
 	function add_to_context( $context ) {

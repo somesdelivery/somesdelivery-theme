@@ -5,11 +5,12 @@
 		<article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
 			<section class="article-content">
 				<div class='article-meta'>
-					<h1 class="article-title">{{post.get_field('titlu')}}</h1>
-					<p>Ediția: {{ post.get_field('editia') }} </p>
+					<h1 class="article-title">{{post.title }}</h1>
+					{% set editie = TimberTerm(post.get_field('editie')) %}
+					<p>Ediția: <a href='{{editie.link}}'>{{ editie.title }}</a></p>
 				</div>
 				<div class="article-body">
-					{{post.get_field('descriere')}}
+					{{post.content}}
 				</div>
 
 				<div class='project-gallery'>

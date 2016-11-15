@@ -137,3 +137,21 @@ article h1 {
 	color: #555;
 	margin: 1em 0;
 }
+
+/* PROIECTE
+--------------------------------------
+*/
+
+.tease-proiecte {
+	width: 32%;
+	display: inline-block;
+	vertical-align: top;
+}
+
+.tease-proiecte a {
+	color: inherit;
+}
+
+.tease-proiecte img {
+	width: 100%;
+}
