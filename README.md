@@ -12,10 +12,6 @@ This is the Wordpress theme for [Someș Delivery](http://somesdelivery.ro). It b
 
 > Custom fields. Made easy.
 
-#### Post Type Archive Links ([website](https://wordpress.org/plugins/post-type-archive-links/))
-
-> Post Type Archive Link creates a metabox on the Appearance > Menu admin page. This lists your custom post types and allows you to add links to each archive page in your WordPress menus.
-
 ## Custom post types
 
 #### Proiect
