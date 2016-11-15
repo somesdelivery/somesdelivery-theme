@@ -18,4 +18,29 @@ This is the Wordpress theme for [Someș Delivery](http://somesdelivery.ro). It b
 
 ## Custom post types
 
+#### Proiect
+
+Slug: `proiecte/`
+
+Used to denote a single project, be it in the contest, or a project by the SD team or our partners.
+
+#### Ediție
+
+Slug: `editii/`
+
+Used to denote an edition of Someș Delivery (2015, 2016, etc.)
+
+## Custom Fields
+
+#### Proiect
+
+* __editie:__ Page link to corresponding Ediție object
+* __galerie:__ Image gallery
+
+#### Ediție
+
+* __galerie:__ Image gallery
+
 ## Custom taxonomies
+
+### Categorie proiect

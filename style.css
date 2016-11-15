@@ -109,7 +109,7 @@ article h1 {
 	margin: 1em 0;
 }
 
-.post-type-proiecte .article-body {
+.post-type-proiect .article-body {
 	max-width: 25em;
 	font-size: 1.2em;
 	margin: 2em 0;
@@ -138,20 +138,34 @@ article h1 {
 	margin: 1em 0;
 }
 
+.project-category {
+	font-family: 'Bebas Kai';
+	font-weight: normal;
+	font-size: 1.4em;
+	position: relative;
+	z-index: 1;
+}
+
 /* PROIECTE
 --------------------------------------
 */
 
-.tease-proiecte {
-	width: 32%;
+.tease-proiect {
+	width: 30%;
+	margin-right: 1%;
 	display: inline-block;
 	vertical-align: top;
 }
 
-.tease-proiecte a {
+.tease-proiect h2 {
+	font-family: 'Bebas Kai';
+	font-weight: normal;
+}
+
+.tease-proiect a {
 	color: inherit;
 }
 
-.tease-proiecte img {
+.tease-proiect img {
 	width: 100%;
 }

@@ -1,6 +1,7 @@
 <?php
 
 if ( ! class_exists( 'Timber' ) ) {
+
 	add_action( 'admin_notices', function() {
 		echo '<div class="error"><p>Timber not activated. Make sure you activate the plugin in <a href="' . esc_url( admin_url( 'plugins.php#timber' ) ) . '">' . esc_url( admin_url( 'plugins.php') ) . '</a></p></div>';
 	});
@@ -28,43 +29,12 @@ class StarterSite extends TimberSite {
 	}
 
 	function register_post_types() {
-		register_post_type('proiecte', array(
-			'labels' => array(
-				'name' => __('Proiecte'),
-				'singular_name' => __('Proiect')
-			),
-			'public' => true,
-			'has_archive' => true,
-			'hierarchical' => true,
-			'supports' => array( 'title', 'editor', 'thumbnail', 'excerpt', 'custom-fields', 'page-attributes')
-		));
-
-		// flush_rewrite_rules();
+		$this->register_post_type_proiect();
+		$this->register_post_type_editie();
 	}
 
 	function register_taxonomies() {
-		 // $labels = [
-	  //       'name'              => _x('Ediții', 'taxonomy general name'),
-	  //       'singular_name'     => _x('Ediție', 'taxonomy singular name'),
-	  //       'search_items'      => __('Caută ediții'),
-	  //       'all_items'         => __('Toate edițiile'),
-	  //       'parent_item'       => __('Ediție părinte'),
-	  //       'parent_item_colon' => __('Ediție părinte:'),
-	  //       'edit_item'         => __('Editează ediție'),
-	  //       'update_item'       => __('Actualizează ediție'),
-	  //       'add_new_item'      => __('Adaugă ediție nouă'),
-	  //       'new_item_name'     => __('Nume nou ediție'),
-	  //       'menu_name'         => __('Ediție'),
-	  //   ];
-	  //   $args = [
-	  //       'hierarchical'      => false,
-	  //       'labels'            => $labels,
-	  //       'show_ui'           => true,
-	  //       'show_admin_column' => true,
-	  //       'query_var'         => true,
-	  //       'rewrite'           => ['slug' => 'editie'],
-	  //   ];
-   //  	register_taxonomy('editie', ['proiecte'], $args);
+		$this->register_taxonomy_categorie_proiect();
 	}
 
 	function add_to_context( $context ) {
@@ -88,6 +58,91 @@ class StarterSite extends TimberSite {
 		return $twig;
 	}
 
+	/*
+		Custom post types
+		--------------------------------------------------------
+	*/
+
+	/* 
+		Post type: Proiect
+	*/
+	function register_post_type_proiect() {
+		register_post_type('proiect', array(
+			'labels' => array(
+				'name' => 'Proiecte',
+				'singular_name' => 'Proiect'
+			),
+			'description' => 'Pentru proiecte din concurs, proiecte proprii sau ale partenerilor.',
+			'rewrite' => array(
+				'slug' => 'proiecte'
+			),
+			'supports' => array(
+				'title', 
+				'editor', 
+				'thumbnail', 
+				'excerpt', 
+				'custom-fields', 
+				'page-attributes'
+			),
+			'taxonomies' => array(
+				'categorie_proiect'
+			),
+			'public' => true,
+			'has_archive' => true,
+			'hierarchical' => false,
+			'menu_icon' => 'dashicons-format-gallery'
+		));
+	}
+
+	/* 
+		Post type: Ediție
+	*/
+	function register_post_type_editie() {
+		register_post_type('editie', array(
+			'labels' => array(
+				'name' => 'Ediții',
+				'singular_name' => 'Ediție'
+			),
+			'description' => 'Pentru edițiile anuale Someș Delivery.',
+			'rewrite' => array(
+				'slug' => 'editii'
+			),
+			'supports' => array(
+				'title', 
+				'editor', 
+				'thumbnail', 
+				'excerpt', 
+				'custom-fields', 
+				'page-attributes'
+			),
+			'public' => true,
+			'has_archive' => true,
+			'hierarchical' => false,
+			'menu_icon' => 'dashicons-carrot'
+		));
+	}
+
+	/* 
+		Custom taxonomies
+		--------------------------------------
+	*/
+
+	/*
+		Taxonomy: Categorie proiect
+	*/
+	function register_taxonomy_categorie_proiect() {
+		register_taxonomy('categorie_proiect', 'proiect', array(
+			'labels' => array(
+				'name' => 'Categorii proiect',
+				'singular_name' => 'Categorie proiect'
+			),
+			'hierarchical' => false,
+			'public' => true,
+			'rewrite' => array(
+				'slug' => 'categorii'
+			)
+		));
+	}
 }
 
 new StarterSite();
