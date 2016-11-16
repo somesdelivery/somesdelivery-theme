@@ -170,7 +170,6 @@ header nav .current-menu-item > a {
 .project-gallery-item {
 	margin: 0;
 	padding: 0;
-	width: 100%;
 }
 
 .project-gallery-item img {
@@ -207,7 +206,7 @@ header nav .current-menu-item > a {
 */
 
 .tease-proiect {
-	
+
 }
 
 .tease-proiect h2 {
@@ -221,4 +220,49 @@ header nav .current-menu-item > a {
 
 .tease-proiect img {
 	width: 100%;
+}
+
+/* PROGRAM EDIȚIE
+-------------------------------------
+*/
+
+.program-editie-zi h3 {
+	font-family: 'Bebas Kai';
+	font-weight: normal;
+	font-size: 1.4em;
+}
+
+.program-editie-zi table {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+.program-editie-zi tr {
+	border-bottom: 1px solid #eee;
+}
+
+.program-editie-zi table th, .program-editie-zi table td {
+	text-align: left;
+	padding: 0.25em 0.5em;
+}
+
+/*
+ ARHIVA EDIȚII
+ --------------------------
+*/
+
+.editie-cover {
+	position: relative;
+	height: 0;
+	padding-bottom: 100%;
+	border: 1px solid #ccc;
+	text-align: center;
+}
+
+.editie-cover h2 {
+	position:absolute;
+	top: 50%;
+	left: 0;
+	right: 0;
+	transform: translate(0,-50%);
 }

@@ -1,13 +1,22 @@
 .grid {
 	display: flex;
+}
+
+.grid .col {
+	flex: 1;
+}
+
+.grid-2, 
+.grid-3 {
+	display: flex;
 	justify-content: space-between;
 }
 
-.col {
-	flex: 1;
+.grid-2 .col {
+	width: 49%;
 }
 
 .grid-3 .col {
 	width: 32%;
-	flex: initial;
 }
+
