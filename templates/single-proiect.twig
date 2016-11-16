@@ -8,7 +8,8 @@
 					{% set categorie = TimberTerm(post.get_field('categorie_proiect')) %}
 					<h1 class="article-title">{{post.title }}</h1>
 					<ul class='project-meta'>
-						<li><span>Ediția</span> 2016</li>
+						{% set editie = TimberPost(post.get_field('editia')) %}
+						<li><span>Ediția</span> <a href='{{ editie.link }}'>{{ editie.title }}</a></li>
 						<li><span>Tip</span> <a href='{{categorie.link}}'>{{ categorie.title }}</a></li>
 						<li><span>Echipa</span> {{ post.get_field('echipa') }}</li>
 					</ul>

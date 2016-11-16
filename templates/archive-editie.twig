@@ -1,11 +1,16 @@
 {% extends "base.twig" %}
 
+{% block title %}
+{% endblock %}
+
 {% block content %}
 	<div class='grid-2'>
 	{% for post in posts %}
+		{% if not post.parent %}
 		<div class='col'>
 			{% include ['tease-'~post.post_type~'.twig', 'tease.twig'] %}
 		</div>
+		{% endif %}
 	{% endfor %}
 	</div>
 {% endblock %}

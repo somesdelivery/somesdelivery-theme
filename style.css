@@ -255,14 +255,22 @@ header nav .current-menu-item > a {
 	position: relative;
 	height: 0;
 	padding-bottom: 100%;
-	border: 1px solid #ccc;
+	border-radius: 0.25em;
 	text-align: center;
+	background-size: cover;
+	background-repeat: none;
+	background-position: center center;
+	color: #333;
+	display: block;
 }
 
-.editie-cover h2 {
+.editie-cover-title {
 	position:absolute;
 	top: 50%;
-	left: 0;
-	right: 0;
-	transform: translate(0,-50%);
+	left: 50%;
+	transform: translate(-50%,-50%);
+	background: yellow;
+	font-weight: 300;
+	padding: 0.1em 0.5em;
+	font-size: 1.4em;
 }

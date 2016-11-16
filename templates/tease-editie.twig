@@ -1,9 +1,7 @@
 {% extends "tease.twig" %}
 
 {% block content %}
-	<div class='editie-cover'>
-		<h2 class="h2">
-			<a href="{{post.link}}">{{post.title}}</a>
-		</h2>
-	</div>
+		<a class='editie-cover' href="{{post.link}}" style='background-image: url({{post.thumbnail.src | resize(1000, 1000) }})'>
+			<span class='editie-cover-title'>{{post.title}}</span>
+		</a>
 {% endblock %}
