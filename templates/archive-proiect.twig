@@ -1,10 +1,13 @@
 {% extends "base.twig" %}
 
-{% block title %}
-{% endblock %}
-
 {% block content %}
+	
+
+	<div class='grid grid-3'>
 	{% for post in posts %}
-		{% include ['tease-'~post.post_type~'.twig', 'tease.twig'] %}
+		<div class='col'>
+			{% include ['tease-'~post.post_type~'.twig', 'tease.twig'] %}
+		</div>
 	{% endfor %}
+	</div>
 {% endblock %}

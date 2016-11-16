@@ -20,7 +20,7 @@
 				<div class='project-gallery'>
 					{% for image in post.get_field('galerie') %}
 					<figure class='project-gallery-item'>
-					    <img src="{{ TimberImage(image).src | resize(1600) }}" />
+					    <img src="{{ TimberImage(image).src | resize(1600) }}"/>
 					    <figcaption>{{image.caption}}</figcaption>
 					</figure>
 					{% endfor %}
