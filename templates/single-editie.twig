@@ -5,8 +5,23 @@
 		<article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
 			<section class="article-content">
 				<div class='article-meta project-meta'>
-					<h1 class="article-title">{{post.title }}</h1>
+					{% if post.parent %}
+					<h2 class='article-parent-title'>
+						<a href='{{post.parent.link}}'>{{post.parent.title}}</a>
+					</h2>
+					{% endif %}
+					<h1 class="article-title">{{post.title}}</h1>
 				</div>
+
+				{% if post.children | length %}
+				<p>Vezi:</p>
+				<ul>
+					 {% for child in post.children %}
+				        <li><a href="{{child.link}}">{{child.title}}</a></li>
+				    {% endfor %}
+				</ul>
+				{% endif %}
+
 				<div class="article-body">
 					{{post.content}}
 				</div
@@ -50,6 +65,8 @@
 					</figure>
 					{% endfor %}
 				</div>
+
+				{% include ['editie/organizatori-editie-'~post.slug~'.twig'] ignore missing %}
 
 			</section>
 		</article>

@@ -37,6 +37,10 @@ header, #content {
 	padding: 1em;
 }
 
+strong, h1, h2, h3, h4, h5, h6 {
+	font-weight: 600;
+}
+
 #content {
 	padding-bottom: 3em;
 }
@@ -120,7 +124,7 @@ header nav ul {
 	margin: 0;
 	padding: 0;
 	text-transform: uppercase;
-	letter-spacing: 0.1em;
+	letter-spacing: 0.05em;
 }
 
 header nav li {
@@ -129,9 +133,10 @@ header nav li {
 }
 
 header nav a {
-	color: #555;
+	color: #888;
 	display: block;
 	padding: 0.25em 0;
+	font-weight: 600;
 }
 
 header nav .current-menu-item > a {
@@ -196,7 +201,7 @@ header nav .current-menu-item > a {
 
 .project-meta span {
 	font-family: 'Bebas Kai';
-	font-weight: normal;
+	font-weight: 400;
 	display: inline-block;
 	margin-right: 0.25em;
 }
@@ -211,7 +216,7 @@ header nav .current-menu-item > a {
 
 .tease-proiect h2 {
 	font-family: 'Bebas Kai';
-	font-weight: normal;
+	font-weight: 400;
 }
 
 .tease-proiect a {
@@ -228,7 +233,7 @@ header nav .current-menu-item > a {
 
 .program-editie-zi h3 {
 	font-family: 'Bebas Kai';
-	font-weight: normal;
+	font-weight: 400;
 	font-size: 1.4em;
 }
 
@@ -273,4 +278,29 @@ header nav .current-menu-item > a {
 	font-weight: 300;
 	padding: 0.1em 0.5em;
 	font-size: 1.4em;
+}
+
+/* Organizatori
+*/
+
+.organizers {
+	margin: 2em 0;
+}
+
+.organizers ul {
+	list-style: none;
+	margin: 1.5em 0;
+	padding: 0;
+}
+
+.organizers li {
+	display: inline-block;
+	margin-right: 1em;
+	margin-bottom: 1em;
+}
+
+.organizers li img {
+	display: block;
+	width: 8em;
+	height: 5em;
 }

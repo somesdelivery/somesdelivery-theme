@@ -2,6 +2,18 @@
 
 This is the Wordpress theme for [Someș Delivery](http://somesdelivery.ro). It builds on the [Timber starter theme](https://github.com/timber/starter-theme).
 
+## Setting up a new website
+
+1. Install Wordpress
+2. Change the website title & tagline, switch language to Romanian
+3. Install the list of plugins (see section below)
+4. Create categories:
+4.1. Noutăți (slug `noutati`)
+5. Add terms to the `categorie_proiect` custom taxonomy: `Evenimente`, `Instalații`, `Amenajări`, etc.
+6. Import the ACF custom field definitions from the `config` folder
+7. Start creating content
+8. Create main navigation menu from the Menu Builder
+
 ## Plugins used by this theme
 
 #### Timber ([website](http://upstatement.com/timber/))
