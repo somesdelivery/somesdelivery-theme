@@ -167,6 +167,7 @@ header nav .current-menu-item > a {
 
 article img {
 	max-width: 100%;
+	height: auto;
 }
 
 /* 
