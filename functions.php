@@ -95,7 +95,7 @@ class StarterSite extends TimberSite {
 			),
 			'public' => true,
 			'has_archive' => true,
-			'hierarchical' => false,
+			'hierarchical' => true,
 			'menu_icon' => 'dashicons-format-gallery'
 		));
 	}

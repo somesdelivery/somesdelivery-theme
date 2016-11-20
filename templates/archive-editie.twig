@@ -4,13 +4,13 @@
 {% endblock %}
 
 {% block content %}
+	{% for row in posts | batch(2) %}
 	<div class='grid-2'>
-	{% for post in posts %}
-		{% if not post.parent %}
+		{% for post in row %}
 		<div class='col'>
 			{% include ['tease-'~post.post_type~'.twig', 'tease.twig'] %}
 		</div>
-		{% endif %}
-	{% endfor %}
+		{% endfor %}
 	</div>
+	{% endfor %}
 {% endblock %}

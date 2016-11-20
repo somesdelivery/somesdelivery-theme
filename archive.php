@@ -31,6 +31,7 @@ if ( is_day() ) {
 	$context['title'] = single_cat_title( '', false );
 	array_unshift( $templates, 'archive-' . get_query_var( 'cat' ) . '.twig' );
 } else if ( is_post_type_archive() ) {
+	
 	$context['title'] = 'Arhiva ' . post_type_archive_title( '', false );
 	array_unshift( $templates, 'archive-' . get_post_type() . '.twig' );
 } else if ( is_tax() ) {
@@ -40,5 +41,14 @@ if ( is_day() ) {
 }
 
 $context['posts'] = Timber::get_posts();
+
+if (is_post_type_archive()) {
+	$queried_obj = get_queried_object();
+	if ($queried_obj->name === 'editie' || $queried_obj->name === 'proiect') {
+		$context['posts'] = array_filter($context['posts'], function($post) {
+			return !$post->parent;
+		});
+	}
+}
 
 Timber::render( $templates, $context );

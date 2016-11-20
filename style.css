@@ -165,6 +165,10 @@ header nav .current-menu-item > a {
 	text-align: center;
 }
 
+article img {
+	max-width: 100%;
+}
+
 /* 
 	GALLERY
 	------------------------------------
