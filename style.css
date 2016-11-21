@@ -309,3 +309,52 @@ article img {
 	width: 8em;
 	height: 5em;
 }
+
+/* CLEARFIX
+--------------------------
+*/
+
+.cf:after {
+	content: ' ';
+	display: block;
+	height: 0;
+	visibility: hidden;
+	clear: both;
+}
+
+/* PAGINATION
+--------------------------
+*/
+
+.pagination {
+	margin: 2em 0;
+}
+
+.pagination ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.pagination ul,
+.pagination .next,
+.pagination .prev {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.pagination li {
+	float: left;
+	margin-right: -1px;
+}
+
+.pagination li span,
+.pagination li a {
+	display: block;
+}
+
+.pagination li span,
+.pagination a {
+	padding: 0.5em 1em;
+	border: 1px solid #ccc;
+}

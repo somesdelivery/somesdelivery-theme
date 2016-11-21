@@ -51,4 +51,6 @@ if (is_post_type_archive()) {
 	}
 }
 
+$context['pagination'] = Timber::get_pagination();
+
 Timber::render( $templates, $context );

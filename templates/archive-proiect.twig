@@ -11,5 +11,7 @@
 		{% endfor %}
 		</div>
 	{% endfor %}
-	</div>
+	{% if pagination %}
+		{% include 'pagination.twig' %}
+	{% endif %}
 {% endblock %}
