@@ -11,11 +11,13 @@
 						{% set editie = TimberPost(post.get_field('editia')) %}
 						<li><span>Ediția</span> <a href='{{ editie.link }}'>{{ editie.title }}</a></li>
 						<li><span>Tip</span> <a href='{{categorie.link}}'>{{ categorie.title }}</a></li>
+						{% if post.get_field('echipa') %}
 						<li><span>Echipa</span> {{ post.get_field('echipa') }}</li>
+						{% endif %}
 					</ul>
 				</div>
 				<div class="article-body">
-					{{post.content}}
+					{{post.excerpt}}
 				</div>
 
 				<div class='project-gallery'>

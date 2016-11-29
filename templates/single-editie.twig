@@ -46,8 +46,10 @@
 								<tr>
 									<td>{{eveniment.orele}}</td>
 									<td>{{eveniment.locul}}</td>
-									<td>{{eveniment.titlul}}</td>
-									<td>{{eveniment.descrierea}}</td>
+									<td>
+										<a href='{{eveniment.evenimentul.link}}'>{{eveniment.evenimentul.title}}</a>
+									</td>
+									<td>{{eveniment.evenimentul.get_preview}}</td>
 								</tr>
 								{% endfor %}
 							</tbody>

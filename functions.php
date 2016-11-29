@@ -15,7 +15,7 @@ if ( ! class_exists( 'Timber' ) ) {
 
 Timber::$dirname = array('templates', 'views');
 
-class StarterSite extends TimberSite {
+class SomesDeliverySite extends TimberSite {
 
 	const POSTS_PER_ARCHIVE_PAGE = 12;
 
@@ -27,7 +27,10 @@ class StarterSite extends TimberSite {
 		add_filter( 'get_twig', array( $this, 'add_to_twig' ) );
 
 		// Configure number of posts per page
-		add_filter( 'pre_get_posts', array( $this, 'posts_per_page' ) );
+		add_action( 'pre_get_posts', array( $this, 'configure_posts_per_page' ) );
+
+		// Support for uploading SVGs into Wordpress
+		add_filter( 'upload_mimes', array( $this, 'custom_mime_types' ) );
 
 		add_action( 'init', array( $this, 'register_post_types' ) );
 		add_action( 'init', array( $this, 'register_taxonomies' ) );
@@ -49,11 +52,24 @@ class StarterSite extends TimberSite {
 		acf_update_setting('google_api_key', 'AIzaSyDhQhOG5CLH0Ccn7H4EdJCkwMyggfkOePo');
 	}
 
-	function posts_per_page() {
-		// For custom post type based archives, configure the number of posts per page
-		if (is_post_type_archive()) {
-			set_query_var('posts_per_archive_page', self::POSTS_PER_ARCHIVE_PAGE);
+	function configure_posts_per_page($query) {
+
+		// Don't alter queries in the admin interface
+		// and don't alter any query that's not the main one
+		if ($query->is_admin() || !$query->is_main_query()) {
+			return;
+		} 
+
+		// For custom post type based archives, override the number of posts per page
+		if ($query->is_post_type_archive()) {
+			$query->set('posts_per_archive_page', self::POSTS_PER_ARCHIVE_PAGE);
 		}
+	}
+
+	function custom_mime_types( $types ) {
+	    $types['svg'] = 'image/svg+xml';
+	    $types['svgz'] = 'image/svg+xml';
+	    return $types;
 	}
 
 	function add_to_context( $context ) {
@@ -164,4 +180,4 @@ class StarterSite extends TimberSite {
 	}
 }
 
-new StarterSite();
+new SomesDeliverySite();
