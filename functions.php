@@ -56,7 +56,7 @@ class SomesDeliverySite extends TimberSite {
 
 		// Don't alter queries in the admin interface
 		// and don't alter any query that's not the main one
-		if ($query->is_admin() || !$query->is_main_query()) {
+		if (is_admin() || !$query->is_main_query()) {
 			return;
 		} 
 
