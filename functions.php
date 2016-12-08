@@ -26,8 +26,8 @@ class SomesDeliverySite extends TimberSite {
 		add_filter( 'timber_context', array( $this, 'add_to_context' ) );
 		add_filter( 'get_twig', array( $this, 'add_to_twig' ) );
 
-		// Configure number of posts per page
-		add_action( 'pre_get_posts', array( $this, 'configure_posts_per_page' ) );
+		
+		add_action( 'pre_get_posts', array( $this, 'configure_get_posts' ) );
 
 		// Support for uploading SVGs into Wordpress
 		add_filter( 'upload_mimes', array( $this, 'custom_mime_types' ) );
@@ -52,7 +52,7 @@ class SomesDeliverySite extends TimberSite {
 		acf_update_setting('google_api_key', 'AIzaSyDhQhOG5CLH0Ccn7H4EdJCkwMyggfkOePo');
 	}
 
-	function configure_posts_per_page($query) {
+	function configure_get_posts($query) {
 
 		// Don't alter queries in the admin interface
 		// and don't alter any query that's not the main one
@@ -60,9 +60,16 @@ class SomesDeliverySite extends TimberSite {
 			return;
 		} 
 
-		// For custom post type based archives, override the number of posts per page
+		// For custom post type based archives
 		if ($query->is_post_type_archive()) {
+
+			// Configure number of posts per page
 			$query->set('posts_per_archive_page', self::POSTS_PER_ARCHIVE_PAGE);
+			
+			// Only show top-level posts
+			if ($query->query_vars['post_parent'] == false) {
+				$query->set('post_parent', 0);
+			}
 		}
 	}
 

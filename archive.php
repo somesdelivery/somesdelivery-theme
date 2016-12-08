@@ -41,16 +41,6 @@ if ( is_day() ) {
 }
 
 $context['posts'] = Timber::get_posts();
-
-if (is_post_type_archive()) {
-	$queried_obj = get_queried_object();
-	if ($queried_obj->name === 'editie' || $queried_obj->name === 'proiect') {
-		$context['posts'] = array_filter($context['posts'], function($post) {
-			return !$post->parent;
-		});
-	}
-}
-
 $context['pagination'] = Timber::get_pagination();
 
 Timber::render( $templates, $context );
