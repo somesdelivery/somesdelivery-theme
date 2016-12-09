@@ -17,7 +17,7 @@
 					</ul>
 				</div>
 				<div class="article-body">
-					{{post.excerpt}}
+					{{post.excerpt | default(post.content) }}
 				</div>
 
 				<div class='project-gallery'>

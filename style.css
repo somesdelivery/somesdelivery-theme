@@ -50,7 +50,7 @@ input, select, textarea {
 }
 
 a {
-	color: #206dd1;
+	color: #009eff;
 	text-decoration: none;
 }
 
@@ -141,7 +141,7 @@ header nav a {
 
 header nav .current-menu-item > a {
 	/*font-weight: bold;*/
-	color: #206dd1;
+	color: #009eff;
 	/*border-bottom: 2px solid currentColor;*/
 }
 
