@@ -14,42 +14,35 @@
 				</div>
 
 				{% if post.children | length %}
-				<p>Vezi:</p>
-				<ul>
+				<ul class='article-subpages'>
 					 {% for child in post.children %}
-				        <li><a href="{{child.link}}">{{child.title}}</a></li>
+				        <li><a href="{{child.link}}"><span>{{child.title}}</span></a></li>
 				    {% endfor %}
 				</ul>
 				{% endif %}
 
 				<div class="article-body">
 					{{post.content}}
-				</div
+				</div>
 
 				{% if post.has_field('zi_de_program') %}
-				<div class='program-editie'>
-				<h2>Program</h2>
+				<div class='program-editie cf'>
+				{# <h2>Program</h2> #}
 				{% for zi_de_program in post.get_field('zi_de_program') %}
 					<div class='program-editie-zi'>
 						<h3>{{ zi_de_program.ziua | date('l, j F Y') | capitalize }}</h3>
 						<table>
-							<thead>
-								<tr>
-									<th>Orele</th>
-									<th>Locul</th>
-									<th>Titlul</th>
-									<th>Descrierea</th>
-								</tr>
-							</thead>
 							<tbody>
 								{% for eveniment in zi_de_program.eveniment %}
 								<tr>
-									<td>{{eveniment.orele}}</td>
-									<td>{{eveniment.locul}}</td>
-									<td>
-										<a href='{{eveniment.evenimentul.link}}'>{{eveniment.evenimentul.title}}</a>
+									<td class='event-coords'>
+										<div class='event-hours'>{{eveniment.orele}}</div>
+										<div class='event-place'>{{eveniment.locul}}</div>
 									</td>
-									<td>{{eveniment.evenimentul.get_preview}}</td>
+									<td>
+										<h4><a href='{{eveniment.evenimentul.link}}'>{{eveniment.evenimentul.title}}</a></h4>
+										{{eveniment.evenimentul.get_preview}}
+									</td>
 								</tr>
 								{% endfor %}
 							</tbody>

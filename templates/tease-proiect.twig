@@ -10,5 +10,5 @@
 	<h2 class="h2">
 		<a href="{{post.link}}">{{post.title}}</a>
 	</h2>
-	<p>{{post.excerpt}}</p>
+	<p>{{post.get_preview(50, false, "")}}</p>
 {% endblock %}

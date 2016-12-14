@@ -1,4 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="114" height="114">
-<path stroke="#000" stroke-width="7" fill="none" d="m7,20h98v72H7zl44,44q5,4 10,0l44-44M7,92l36-36m26,0 36,36"/>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 21.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 114 114" style="enable-background:new 0 0 114 114;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#777777;}
+</style>
+<path id="email-4-icon" class="st0" d="M1.5,15.8v82.4h111V15.8H1.5z M99.4,26.6L56.9,61.7L14.5,26.6H99.4z M101.7,87.4H12.3V39.5
+	l44.6,36.9l44.8-37V87.4z"/>
 </svg>
