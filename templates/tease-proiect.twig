@@ -1,12 +1,12 @@
 {% extends "tease.twig" %}
 
 {% block content %}
+
+	{% set default_thumbnail = site.theme.link ~ '/static/img/default-thumbnail.png' %}
 	
-	{% if post.thumbnail.src %}
-		<a href="{{post.link}}">
-			<img src="{{post.thumbnail.src | resize(600, 400) }}" alt='{{post.title}}'/>
-		</a>
-	{% endif %}
+	<a href="{{post.link}}">
+		<img src="{{post.thumbnail.src | default(default_thumbnail) | resize(600, 400) }}" alt='{{post.title}}'/>
+	</a>
 	<h2 class="h2">
 		<a href="{{post.link}}">{{post.title}}</a>
 	</h2>
