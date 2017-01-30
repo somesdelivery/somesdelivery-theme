@@ -15,7 +15,7 @@
 
 				{% if post.children | length %}
 				<ul class='article-subpages'>
-					 {% for child in post.children %}
+					 {% for child in post.children('parent') %}
 				        <li><a href="{{child.link}}"><span>{{child.title}}</span></a></li>
 				    {% endfor %}
 				</ul>
@@ -24,6 +24,12 @@
 				<div class="article-body">
 					{{post.content}}
 				</div>
+
+				{% if post.has_field('harta') %}
+				<div class='harta-editie'>
+					<img src='{{ TimberImage(post.get_field('harta')).src }}'/>
+				</div>
+				{% endif %}
 
 				{% if post.has_field('zi_de_program') %}
 				<div class='program-editie cf'>

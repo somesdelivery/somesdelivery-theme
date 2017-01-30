@@ -61,7 +61,7 @@ class SomesDeliverySite extends TimberSite {
 		} 
 
 		// For custom post type based archives
-		if ($query->is_post_type_archive()) {
+		if ($query->is_post_type_archive() || $query->is_tax()) {
 
 			// Configure number of posts per page
 			$query->set('posts_per_archive_page', self::POSTS_PER_ARCHIVE_PAGE);

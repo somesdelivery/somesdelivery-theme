@@ -5,7 +5,9 @@
 		<article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
 			<section class="article-content">
 				<div class='article-meta'>
+					{% block content_title %}
 					<h1 class="article-title">{{post.title}}</h1>
+					{% endblock %}
 				</div>
 				<div class="article-body">
 					{{post.content}}
