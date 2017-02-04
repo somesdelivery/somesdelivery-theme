@@ -306,13 +306,17 @@ article img {
 	background: #fff;
 }
 
+.program-editie-zi tbody tr {
+	border-bottom: 1px solid #ddd;
+}
+
 .program-editie-zi tbody tr:nth-child(2n) {
-	background: yellow;
+	/*background: yellow;*/
 }
 
 .program-editie-zi table th, .program-editie-zi table td {
 	text-align: left;
-	padding: 0.5em 1em;
+	padding: 1em;
 	vertical-align: top;
 }
 
@@ -331,6 +335,10 @@ article img {
 	font-size: 1.4em;
 	font-weight: 300;
 	margin: 0 0 0.25em;
+}
+
+.program-editie-zi img {
+	width: 10em;
 }
 
 /*
@@ -448,6 +456,22 @@ article img {
 	background: #f0f0f0;
 	padding: 1em;
 	margin: 1em 0;
+}
+
+/* 
+	HERO IMAGE
+*/
+
+.hero-image {
+	background-color: #ccc;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	min-height: 20em;
+	margin: -3em -1em 1em;
+	padding: 2em;
+	text-align: center;
+	color: #fff;
 }
 
 .theme-longread .article-body {

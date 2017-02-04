@@ -2,19 +2,23 @@
 
 {% set default_thumbnail = site.theme.link ~ '/static/img/default-thumbnail.png' %}
 
+{% block hero %}
+	<div class='hero-image' style='background-image: url("{{post.thumbnail.src | resize(1600)}}")'>
+		<div class='article-meta project-meta'>
+			{% if post.parent %}
+			<h2 class='article-parent-title'>
+				<a href='{{post.parent.link}}'>{{post.parent.title}}</a>
+			</h2>
+			{% endif %}
+			<h1 class="article-title">{{post.title}}</h1>
+		</div>
+	</div>
+{% endblock %}
+
 {% block content %}
 	<div class="content-wrapper">
 		<article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
 			<section class="article-content">
-				<div class='article-meta project-meta'>
-					{% if post.parent %}
-					<h2 class='article-parent-title'>
-						<a href='{{post.parent.link}}'>{{post.parent.title}}</a>
-					</h2>
-					{% endif %}
-					<h1 class="article-title">{{post.title}}</h1>
-				</div>
-
 				{% if post.children | length %}
 				<ul class='article-subpages'>
 					 {% for child in post.children('parent') %}
@@ -49,7 +53,7 @@
 									</td>
 									<td>
 										<a href="{{eveniment.evenimentul.link}}">
-											<img src="{{eveniment.evenimentul.thumbnail.src | default(default_thumbnail) | resize(600, 400) }}" alt='{{eveniment.evenimentul.title}}'/>
+											<img src="{{eveniment.evenimentul.thumbnail.src | default(default_thumbnail) | resize(400, 300) }}" alt='{{eveniment.evenimentul.title}}'/>
 										</a>
 										<h4><a href='{{eveniment.evenimentul.link}}'>{{eveniment.evenimentul.title}}</a></h4>
 										{{eveniment.evenimentul.get_preview(50, false, '')}}
