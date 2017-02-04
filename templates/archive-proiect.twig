@@ -1,17 +1,18 @@
 {% extends "base.twig" %}
 
 {% block content %}
-	
-	{% for row in posts | batch(3) %}
-		<div class='grid-3'>
-		{% for post in row %}
-			<div class='col'>
-				{% include ['tease-'~post.post_type~'.twig', 'tease.twig'] %}
+	<div class='container'>
+		{% for row in posts | batch(3) %}
+			<div class='grid-3'>
+			{% for post in row %}
+				<div class='col'>
+					{% include ['tease-'~post.post_type~'.twig', 'tease.twig'] %}
+				</div>
+			{% endfor %}
 			</div>
 		{% endfor %}
-		</div>
-	{% endfor %}
-	{% if pagination %}
-		{% include 'pagination.twig' %}
-	{% endif %}
+		{% if pagination %}
+			{% include 'pagination.twig' %}
+		{% endif %}
+	</div>
 {% endblock %}

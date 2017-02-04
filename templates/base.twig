@@ -22,12 +22,12 @@
 			{% endblock %}
 		</header>
 
-		<section id="content" role="main" class="content-wrapper">
+		<section role="main" class="content content-wrapper">
 
-			{% block hero %}
-			{% endblock %}
+			{% block hero %} <!-- HERO GOES HERE --> {% endblock %}
 			
-			<div class="container {{sidebar_class}}">
+			<div class="{{sidebar_class}}">
+				
 				{% block title %}
 					{% if title %}
 						<div class='article-meta'>
@@ -35,9 +35,11 @@
 						</div>
 					{% endif %}
 				{% endblock %}
+
 				{% block content %}
 					Sorry, no content
 				{% endblock %}
+			
 			</div>
 			{% if sidebar %}
 				<aside class="layout-sidebar">

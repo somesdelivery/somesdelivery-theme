@@ -1,9 +1,11 @@
+{% set page_theme = 'theme-dark' %}
+
 {% extends "base.twig" %}
 
 {% set default_thumbnail = site.theme.link ~ '/static/img/default-thumbnail.png' %}
 
 {% block hero %}
-	<div class='hero-image' style='background-image: url("{{post.thumbnail.src | resize(1600)}}")'>
+	<div class='hero-image' style='background-image: url("{{post.thumbnail.src | resize(2000)}}")'>
 		<div class='article-meta project-meta'>
 			{% if post.parent %}
 			<h2 class='article-parent-title'>
@@ -16,69 +18,84 @@
 {% endblock %}
 
 {% block content %}
-	<div class="content-wrapper">
-		<article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
-			<section class="article-content">
-				{% if post.children | length %}
-				<ul class='article-subpages'>
-					 {% for child in post.children('parent') %}
-				        <li><a href="{{child.link}}"><span>{{child.title}}</span></a></li>
-				    {% endfor %}
-				</ul>
-				{% endif %}
+	<article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
+		<section class="article-content">
+			{% if post.children | length %}
+			<ul class='article-subpages'>
+				 {% for child in post.children('parent') %}
+			        <li><a href="{{child.link}}"><span>{{child.title}}</span></a></li>
+			    {% endfor %}
+			</ul>
+			{% endif %}
+
+			<div class='container'>
 
 				<div class="article-body">
 					{{post.content}}
 				</div>
+			
+				<h3>Galerie de imagini</h3>
 
-				{% if post.has_field('harta') %}
-				<div class='harta-editie'>
-					<img src='{{ TimberImage(post.get_field('harta')).src }}'/>
-				</div>
-				{% endif %}
-
-				{% if post.has_field('zi_de_program') %}
-				<div class='program-editie cf'>
-				{# <h2>Program</h2> #}
-				{% for zi_de_program in post.get_field('zi_de_program') %}
-					<div class='program-editie-zi'>
-						<h3>{{ zi_de_program.ziua | date('l, j F Y') | capitalize }}</h3>
-						<table>
-							<tbody>
-								{% for eveniment in zi_de_program.eveniment %}
-								<tr>
-									<td class='event-coords'>
-										<div class='event-hours'>{{eveniment.orele}}</div>
-										<div class='event-place'>{{eveniment.locul}}</div>
-									</td>
-									<td>
-										<a href="{{eveniment.evenimentul.link}}">
-											<img src="{{eveniment.evenimentul.thumbnail.src | default(default_thumbnail) | resize(400, 300) }}" alt='{{eveniment.evenimentul.title}}'/>
-										</a>
-										<h4><a href='{{eveniment.evenimentul.link}}'>{{eveniment.evenimentul.title}}</a></h4>
-										{{eveniment.evenimentul.get_preview(50, false, '')}}
-									</td>
-								</tr>
-								{% endfor %}
-							</tbody>
-						</table>
-					</div>
-				{% endfor %}
-				</div>
-				{% endif %}
-
-				<div class='project-gallery'>
+				<div class='gallery project-gallery'>
 					{% for image in post.get_field('galerie') %}
-					<figure class='project-gallery-item'>
+					<figure class='gallery-item project-gallery-item'>
 					    <img src="{{ TimberImage(image).src | resize(1600) }}"/>
 					    <figcaption>{{image.caption}}</figcaption>
 					</figure>
 					{% endfor %}
 				</div>
+			</div>
 
-				{% include ['editie/organizatori-editie-'~post.slug~'.twig'] ignore missing %}
+			{% if post.has_field('harta') %}
+			<div class='container'>
+				<h3>Harta tronsonului</h3>
+			</div>
+			<div class='harta-editie'>
+				<img src='{{ TimberImage(post.get_field('harta')).src }}'/>
+			</div>
+			{% endif %}
 
-			</section>
-		</article>
-	</div><!-- /content-wrapper -->
+
+			<div class='container'>
+			{% if post.has_field('zi_de_program') %}
+			<div class='program-editie cf'>
+			<h3>Program</h3>
+			{% for zi_de_program in post.get_field('zi_de_program') %}
+				<div class='program-editie-zi'>
+					<h3>{{ zi_de_program.ziua | date('l, j F Y') | capitalize }}</h3>
+					<table>
+						<tbody>
+							{% for eveniment in zi_de_program.eveniment %}
+							<tr>
+								<td class='event-coords'>
+									<div class='event-hours'>{{eveniment.orele}}</div>
+									<div class='event-place'>{{eveniment.locul}}</div>
+								</td>
+								<td>
+									<a href="{{eveniment.evenimentul.link}}">
+										<img src="{{eveniment.evenimentul.thumbnail.src | default(default_thumbnail) | resize(400, 300) }}" alt='{{eveniment.evenimentul.title}}'/>
+									</a>
+									<h4><a href='{{eveniment.evenimentul.link}}'>{{eveniment.evenimentul.title}}</a></h4>
+									{{eveniment.evenimentul.get_preview(50, false, '')}}
+								</td>
+							</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+				</div>
+			{% endfor %}
+			</div>
+			{% endif %}
+			</div>
+
+			<div class='organizers'>
+				<div class='container'>
+					{% include ['editie/organizatori-editie-'~post.slug~'.twig'] ignore missing %}
+				</div>
+			</div>
+
+		</section>
+	</article>
+
+	{% include 'include/slideshow-script.twig' %}
 {% endblock %}

@@ -10,25 +10,35 @@
 {% block content_meta %}
 <section class='interviu-info'>
 
-	{% set nume = post.get_field('intervievat_nume') %}
-	{% set imagine = post.get_field('intervievat_imagine') %}
-	{% set bio = post.get_field('intervievat_bio') %}
-	{% set data_interviu = post.get_field('interviu_data') %}
+	<div class='container'>
 
-	{% if nume %}
-	<h3 class='interviu-info-nume'>{{nume}}</h3>
-	{% endif %}
+		{% set nume = post.get_field('intervievat_nume') %}
+		{% set imagine = post.get_field('intervievat_imagine') %}
+		{% set bio = post.get_field('intervievat_bio') %}
+		{% set data_interviu = post.get_field('interviu_data') %}
 
-	{% if imagine %}
-	<img class='interviu-info-imagine' src='{{ TimberImage(imagine).src | resize(400) }}'/>
-	{% endif %}
+		{% if nume %}
+		<h3 class='interviu-info-nume'>{{nume}}</h3>
+		{% endif %}
 
-	{% if bio %}
-	<div class='interviu-info-bio'>{{ bio }}</div>
-	{% endif %}
+		{% if imagine %}
+		<img class='interviu-info-imagine' src='{{ TimberImage(imagine).src | resize(400) }}'/>
+		{% endif %}
 
-	{% if data_interviu %}
-	<p>{{ data_interviu | date('F Y') }}</p>
-	{% endif %}
+		{% if bio %}
+		<div class='interviu-info-bio'>{{ bio }}</div>
+		{% endif %}
+
+		{% if data_interviu %}
+		<p>{{ data_interviu | date('F Y') }}</p>
+		{% endif %}
+	</div>
 </section>
+{% endblock %}
+
+{% block content_body %}
+
+<div class='two-thirds'>
+	{{post.content}}
+</div>
 {% endblock %}

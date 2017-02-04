@@ -20,9 +20,9 @@
 					{{post.excerpt | default(post.content) }}
 				</div>
 
-				<div class='project-gallery'>
+				<div class='gallery project-gallery'>
 					{% for image in post.get_field('galerie') %}
-					<figure class='project-gallery-item'>
+					<figure class='gallery-item project-gallery-item'>
 					    <img src="{{ TimberImage(image).src | resize(1600) }}"/>
 					    <figcaption>{{image.caption}}</figcaption>
 					</figure>
@@ -32,4 +32,6 @@
 			</section>
 		</article>
 	</div><!-- /content-wrapper -->
+
+	{% include 'include/slideshow-script.twig' %}
 {% endblock %}

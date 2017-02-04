@@ -4,13 +4,15 @@
 {% endblock %}
 
 {% block content %}
-	{% for row in posts | batch(2) %}
-	<div class='grid-2'>
-		{% for post in row %}
-		<div class='col'>
-			{% include ['tease-'~post.post_type~'.twig', 'tease.twig'] %}
+	<div class='container'>
+		{% for row in posts | batch(2) %}
+		<div class='grid-2'>
+			{% for post in row %}
+			<div class='col'>
+				{% include ['tease-'~post.post_type~'.twig', 'tease.twig'] %}
+			</div>
+			{% endfor %}
 		</div>
 		{% endfor %}
 	</div>
-	{% endfor %}
 {% endblock %}
