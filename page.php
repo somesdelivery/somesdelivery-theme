@@ -24,4 +24,14 @@
 $context = Timber::get_context();
 $post = new TimberPost();
 $context['post'] = $post;
+
+$page_slug = str_replace('/', '-', get_page_uri($post->ID));
+
+switch ($page_slug) {
+	case 'somesul':
+		$context['interviuri'] = new TimberPost(403);
+		$context['povestire'] = new TimberPost(417);
+		break;
+}
+
 Timber::render( array( 'page-' . $post->post_name . '.twig', 'page.twig' ), $context );

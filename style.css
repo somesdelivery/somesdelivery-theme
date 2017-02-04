@@ -134,6 +134,10 @@ header nav li {
 	margin: 0 1em;
 }
 
+header nav li:last-child {
+	margin-left: 3em;
+}
+
 header nav a {
 	color: #fff;
 	display: block;

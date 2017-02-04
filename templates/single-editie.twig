@@ -1,5 +1,7 @@
 {% extends "base.twig" %}
 
+{% set default_thumbnail = site.theme.link ~ '/static/img/default-thumbnail.png' %}
+
 {% block content %}
 	<div class="content-wrapper">
 		<article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
@@ -46,6 +48,9 @@
 										<div class='event-place'>{{eveniment.locul}}</div>
 									</td>
 									<td>
+										<a href="{{eveniment.evenimentul.link}}">
+											<img src="{{eveniment.evenimentul.thumbnail.src | default(default_thumbnail) | resize(600, 400) }}" alt='{{eveniment.evenimentul.title}}'/>
+										</a>
 										<h4><a href='{{eveniment.evenimentul.link}}'>{{eveniment.evenimentul.title}}</a></h4>
 										{{eveniment.evenimentul.get_preview(50, false, '')}}
 									</td>

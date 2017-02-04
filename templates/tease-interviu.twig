@@ -1,0 +1,17 @@
+{% extends 'tease.twig' %}
+
+{% block content %}
+
+	{% set imagine = post.get_field('intervievat_imagine') %}
+
+	{% if imagine %}
+	<a href="{{interviu.link}}">
+		<img src="{{ TimberImage(imagine).src | resize(600, 400) }}" alt='{{interviu.title}}'/>
+	</a>
+	{% endif %}
+	
+	<h2 class="h2">
+		<a href="{{interviu.link}}">{{interviu.title}}</a>
+	</h2>
+	<p>{{interviu.get_preview(50, false, "")}}</p>
+{% endblock %}

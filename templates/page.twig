@@ -10,7 +10,9 @@
 					{% endblock %}
 				</div>
 				<div class="article-body">
+					{% block content_body %}
 					{{post.content}}
+					{% endblock %}
 				</div>
 			</section>
 
