@@ -183,6 +183,10 @@ article img {
 	height: auto;
 }
 
+article .wp-caption {
+	max-width: 100%;
+}
+
 .article-subpages {
 	list-style: none;
 	padding: 0;
