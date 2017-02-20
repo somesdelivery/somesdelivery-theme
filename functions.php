@@ -82,6 +82,7 @@ class SomesDeliverySite extends TimberSite {
 	function add_to_context( $context ) {
 		$context['menu'] = new TimberMenu();
 		$context['site'] = $this;
+		$context['default_thumbnail'] = get_stylesheet_directory_uri() . '/static/img/default-thumbnail.png';
 		return $context;
 	}
 

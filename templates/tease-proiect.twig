@@ -1,14 +1,13 @@
 {% extends "tease.twig" %}
 
 {% block content %}
-
-	{% set default_thumbnail = site.theme.link ~ '/static/img/default-thumbnail.png' %}
-	
-	<a href="{{post.link}}">
+	<a class='tease-proiect__thumb' href="{{post.link}}">
 		<img src="{{post.thumbnail.src | default(default_thumbnail) | resize(600, 400) }}" alt='{{post.title}}'/>
 	</a>
-	<h2 class="h2">
-		<a href="{{post.link}}">{{post.title}}</a>
-	</h2>
-	<p>{{post.get_preview(50, false, "")}}</p>
+	<div class='tease-proiect__desc'>
+		<h2>
+			<a href="{{post.link}}">{{post.title}}</a>
+		</h2>
+		<p>{{post.get_preview(50, false, "")}}</p>
+	</div>
 {% endblock %}

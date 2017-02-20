@@ -24,16 +24,20 @@ html {
 }
 
 body {
-	font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
+	font-family: 'Roboto', 'Open Sans', 'Helvetica', 'Arial', sans-serif;
 	margin: 0;
-	line-height: 1.4;
-	color: #333;
+	line-height: 1.5;
+	color: #404040;
 	font-weight: 300;
-	border: 1em solid #fff;
+	border: 0.75em solid #fff;
 }
 
 .content {
 	background-color: #f3f3f3;
+}
+
+.content-wrapper {
+	padding: 2em 0;
 }
 
 strong, h1, h2, h3, h4, h5, h6 {
@@ -120,14 +124,16 @@ header nav {
 	/*font-size: 0.9em;*/
 	display: inline-block;
 	vertical-align: middle;
+	font-family: 'Roboto Condensed', Helvetica, Arial, sans-serif;
 }
 
 header nav ul {
 	list-style: none;
 	margin: 0;
 	padding: 0;
-	text-transform: lowercase;
-	font-variant: small-caps;
+	/*text-transform: lowercase;*/
+	/*font-variant: small-caps;*/
+	text-transform: uppercase;
 	letter-spacing: 0.1em;
 	font-weight: 300;
 }
@@ -137,9 +143,11 @@ header nav li {
 	margin: 0 1em;
 }
 
+/*
 header nav li:last-child {
 	margin-left: 3em;
 }
+*/
 
 header nav a {
 	color: #fff;
@@ -155,7 +163,7 @@ body.single-editie .menu-item-object-editie {
 
 
 .article-title {
-	font-size: 5em;
+	font-size: 4em;
 	font-weight: 300;
 	letter-spacing: -0.02em;
 	margin: 0;
@@ -254,29 +262,56 @@ article .wp-caption {
 }
 
 .project-meta span {
-	font-family: 'Bebas Kai';
-	font-weight: 400;
+	font-family: 'Roboto Condensed', 'Bebas Kai';
+	font-weight: 700;
 	display: inline-block;
 	margin-right: 0.25em;
+	text-transform: uppercase;
 }
 
 /* PROIECTE
 --------------------------------------
 */
 
+.post-type-archive-proiect .grid {
+	margin: 1.5em 0;
+}
+
 .tease-proiect {
-	/*background: #fff;*/
+	background: #fff;
+	height: 100%;
+	box-shadow: 0 0.3em 0.2em rgba(0,0,0,0.05);
+	border-radius: 0.25em;
+	overflow: hidden;
 }
 
 .tease-proiect h2 {
-	font-family: 'Bebas Kai';
+	font-family: 'Roboto Condensed', 'Bebas Kai';
 	font-weight: 400;
 	line-height: 1.1;
-	margin: 0.5em 0 1em;
+	margin: 0 0 0.5em;
+	/*text-transform: uppercase;*/
+}
+
+.tease-proiect__thumb {
+	display: block;
+}
+
+.tease-proiect__desc {
+	padding: 1em;
+}
+
+.tease-proiect p {
+	margin: 0;
+	font-size: 0.9em;
 }
 
 .tease-proiect a {
-	color: inherit;
+	/*color: inherit;*/
+}
+
+.tease-proiect a:hover {
+	text-decoration: underline;
 }
 
 .tease-proiect img {
@@ -304,10 +339,11 @@ article .wp-caption {
 }
 
 .program-editie-zi h3 {
-	font-family: 'Bebas Kai';
-	font-weight: 400;
+	font-family: 'Roboto Condensed', 'Bebas Kai';
+	font-weight: 700;
 	font-size: 2em;
 	margin: 0 0 0.5em;
+	text-transform: uppercase;
 }
 
 .program-editie-zi table {
@@ -340,9 +376,10 @@ article .wp-caption {
 }
 
 .program-editie-zi .event-hours {
-	font-family: 'Bebas Kai';
-	font-weight: 400;
+	font-family: 'Roboto Condensed', 'Bebas Kai';
+	font-weight: 700;
 	font-size: 1.8em;
+	text-transform: uppercase;
 }
 
 .program-editie-zi h4 {
@@ -458,6 +495,7 @@ article .wp-caption {
 .pagination a {
 	padding: 0.5em 1em;
 	border: 1px solid #ccc;
+	background: #fff;
 }
 
 /* THEMES */
@@ -577,4 +615,15 @@ article .wp-caption {
 	-moz-transition: opacity 0.2s, visibility 0.2s;
 	-webkit-transition: opacity 0.2s, visibility 0.2s;
 	-ms-transition: opacity 0.2s, visibility 0.2s;
+}
+
+.tease-home {
+	padding: 2em 0;
+	font-size: 1.2em;
+	line-height: 1.3;
+}
+
+.wp-caption-text {
+	font-size: 0.85em;
+	color: #777;
 }
