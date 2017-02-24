@@ -7,18 +7,20 @@
 {% endblock %}
 
 	<body class="{{body_class}} {{page_theme}}" data-template="base.twig">
-		<header class="header" >
+		<header class="header layout layout--hbox layout--spread layout--middle">
 			{% block header %}
-				<!--<div class="container">-->
-					<h1 class="header-logo" role="banner">
-						<a class="header-logo-link" href="{{site.url}}" rel="home">
-							<img src='{{site.theme.link}}/static/svg/somes-delivery/somes-delivery.svg' alt='{{site.name}}'>
-						</a>
-					</h1>
-					<nav id="nav-main" class="nav-main" role="navigation">
-						{% include "components/menu.twig" with {'menu': menu.get_items} %}
-					</nav><!-- #nav -->
-				<!--</div>-->
+				<h1 class="header-logo layout__item layout__item--fixed-size" role="banner">
+					<a class="header-logo-link" href="{{site.url}}" rel="home">
+						<img src='{{site.theme.link}}/static/svg/somes-delivery/somes-delivery.svg' alt='{{site.name}}'>
+					</a>
+				</h1>
+				<nav id="nav-main" class="nav-main layout__item layout__item--grow" role="navigation">
+					{% include "components/menu.twig" with {'menu': menu.get_items} %}
+				</nav><!-- #nav -->
+
+				<form class='searchbox layout__item layout__item--fixed-size' action="{{site.url}}" method='GET'>
+					<input class='searchbox__input' name='s' type='search' placeholder='Caută în site'/>
+				</form>
 			{% endblock %}
 		</header>
 
@@ -34,11 +36,7 @@
 		</section>
 
 		{% block footer %}
-			<footer id="footer">
-				<div class='container'>
-					{% include 'components/footer.twig' %}
-				</div>
-			</footer>
+			{% include 'components/footer.twig' %}
 			{{ function('wp_footer') }}
 		{% endblock %}
 	</body>

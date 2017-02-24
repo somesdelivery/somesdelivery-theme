@@ -43,11 +43,34 @@ strong, h1, h2, h3, h4, h5, h6 {
 
 input, select, textarea {
 	font-family: inherit;
+	font-size: 1em;
 }
 
 a {
 	color: #009eff;
 	text-decoration: none;
+}
+
+/* 
+	Global: grid 
+	----------------------------
+*/
+
+.grid {
+	display: flex;
+	align-items: stretch;
+}
+
+.grid-2 .col {
+	flex-basis: 48%;
+	width: 48%;
+	margin-right: 2%;
+}
+
+.grid-3 .col {
+	flex-basis: 31%;
+	width: 31%;
+	margin-right: 2.33%;
 }
 
 /* 
@@ -112,35 +135,45 @@ body.single-editie .menu-item-object-editie {
 	--------------------------------------
 */
 
-footer {
-	color: #777;
-	padding: 3em 0;
+.footer {
+	color: #999;
 	background: #fff;
-	text-align: center;
+	font-size: 0.9em;
+	padding: 1.5em 0;
 }
 
-.footer-logo {
-	/*float: left;*/
-	/*margin-right: 2em;*/
+.footer__logo {
+	margin-right: 3em;
 }
 
-.footer-logo img {
-	height: 3em;
+.footer__logo img {
+	height: 4.5em;
 }
 
-.contact-links {
+.footer__nav {
 	list-style: none;
 	margin: 0;
 	padding: 0;
 }
 
-.contact-links li {
+.footer__nav li {
 	display: inline-block;
+	margin-right: 0.75em;
+}
+
+.footer_nav a {
+	display: block;
+	text-decoration: none;
+}
+
+.footer__nav img {
+	height: 1.2em;
+	display: inline-block;
+	vertical-align: middle;
 	margin-right: 0.25em;
 }
 
-.contact-links img {
-	height: 1.5em;
+.footer__copy {
 }
 
 /* 
@@ -158,7 +191,7 @@ footer {
 }
 
 .container--padded {
-	padding: 1.5em 0;
+	padding: 1.5em 1em;
 }
 
 .two-thirds {
@@ -233,7 +266,7 @@ article .wp-caption {
 */
 
 .masthead {
-	text-align: center;
+	/*text-align: center;*/
 	margin: 3em 0;
 }
 
@@ -248,11 +281,12 @@ article .wp-caption {
 }
 
 .masthead__title {
-	font-size: 4em;
-	font-weight: 300;
+	font-size: 6em;
+	font-weight: 100;
 	letter-spacing: -0.02em;
 	margin: 0;
 	line-height: 1;
+	color: #06244B;
 }
 
 .masthead__meta {
@@ -281,8 +315,9 @@ article .wp-caption {
 
 .content__intro {
 	font-size: 1.4em;
-	text-align: center;
+	/*text-align: center;*/
 	margin: 2.15em 0;
+	width: 66.66%;
 }
 
 /* 
@@ -392,35 +427,6 @@ article .wp-caption {
 	width: 10em;
 }
 
-/*
-	ARHIVA EDIȚII
-	--------------------------
-*/
-
-.editie-cover {
-	position: relative;
-	height: 0;
-	padding-bottom: 100%;
-	border-radius: 0.25em;
-	text-align: center;
-	background-size: cover;
-	background-repeat: none;
-	background-position: center center;
-	color: #333;
-	display: block;
-}
-
-.editie-cover-title {
-	position:absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%,-50%);
-	background: yellow;
-	font-weight: 300;
-	padding: 0.1em 0.5em;
-	font-size: 1.4em;
-}
-
 /* Organizatori
 */
 
@@ -501,7 +507,7 @@ article .wp-caption {
 /* THEMES */
 
 .theme-longread .content {
-	background: #fff;
+	background: #fafafa;
 }
 
 .theme-dark .content {
@@ -560,7 +566,7 @@ article .wp-caption {
 	background-attachment: fixed;
 	min-height: 20em;
 	padding: 2em;
-	text-align: center;
+	/*text-align: center;*/
 	color: #fff;
 	position: relative;
 }
@@ -692,6 +698,184 @@ article .wp-caption {
 	text-decoration: underline;
 }
 
+.teasebox__meta a {
+	color: inherit;
+}
+
 .teasebox__thumb img {
 	width: 100%;
+}
+
+.teasebox--result {
+	margin: 1.5em 0;
+}
+
+
+/*
+	Component: Search Box
+*/
+
+.searchbox {
+	min-width: 15em;
+}
+
+.searchbox__input {
+	background: none;
+	border: none;
+	border-bottom: 2px solid rgba(255,255,255,0.2);
+	color: #fff;
+	box-sizing: border-box;
+	width: 100%;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+
+.searchbox__input:focus {
+	border-bottom-color: #fff;
+	outline: none;
+}
+
+.searchbox__input:placeholder_shown {
+	color: rgba(255,255,255,0.2);
+}
+
+/* ---------------------------------------------------------------------------------- */
+
+/* 
+	FLEXBOX LAYOUT
+	--------------
+	
+	We're using the BEM naming methodology (http://getbem.com/naming/).
+
+	Block: 
+		.layout
+	Elements: 
+		.layout__item
+	Modifiers:
+		.layout__item--fixed-size
+		.layout__item--grow,
+		et cetera
+
+*/
+
+/* 
+	The basic building block is a layout container that will distribute 
+	its child elements either horizontally or vertically. 
+*/
+.layout {
+	display: flex;
+}
+
+/* 
+	The children of a layout container may be laid either horizontally
+	or vertically, depending on the `flex-direction` property. 
+
+	Here we create two modifiers for the .layout box
+*/
+
+.layout--hbox {
+	flex-direction: row;
+}
+
+.layout--vbox {
+	flex-direction: column;
+}
+
+/* 
+	A layout that stretches all child elements to the same size.
+
+	This is useful for things like sidebars for which we might want 
+	to have a background that stretches all the way down.
+	(Even if the sidebar only has a little content)
+*/
+.layout--stretch {
+	align-items: stretch;
+}
+
+/*
+	The alternative to stretching the child elements is to align 
+	them in some way. In some situations, such as in headers that 
+	contain logos and navigation menus, you may want to align all
+	children centrally.
+*/
+.layout--middle {
+	align-items: center;
+}
+
+/*
+	In situation where we need children to 'float' at opposite directions of the layout,
+	we can use the `justify-content` property to push them to the edges.
+*/
+.layout--spread {
+	justify-content: space-between;
+}
+
+/*
+	This is the only element we need in a layout block.
+	By default, a `layout__item` does not need to do anything special.
+	It has `flex: 0 1 auto` which is a shorthand for:
+		- flex-grow: 0
+		- flex-shrink: 1
+		- flex-basis: auto
+
+	We do however set `overflow: hidden` on it, so that we can enable
+	scrolling on items that need it (see modifiers below).
+*/
+.layout__item {
+	/*overflow: hidden;*/
+}
+
+/*
+	A layout item that grows to fill the available space.
+*/
+.layout__item--grow  {
+	flex-grow: 1;
+}
+
+/*
+	A layout item that shows a scrollbar in case its content overflows
+*/
+.layout__item--scroll {
+	overflow: auto;
+}
+
+/*
+	A layout item that maintains a fixed size.
+	(Either width or height, depending on how the items are laid out)
+
+	This is accomplished by setting both `flex-grow` and `flex-shrink` to 0,
+	in effect disabling the flexibility on the item.
+*/
+.layout__item--fixed-size {
+	flex-grow: 0;
+	flex-shrink: 0;
+}
+
+/*
+	For items with a fixed size, we control that size by setting the 
+	`flex-basis` property rather than the `width` or `height` property.
+
+	Below, we define a couple of sizes that are used throughout the layout.
+*/
+
+.layout__item--width-medium {
+	flex-basis: 12em;
+}
+
+.layout__item--height-small {
+	flex-basis: 3em;
+}
+
+/* 
+	In general, you'd want to adjust how the app lays out when viewed
+	on small devices. 
+
+	Below is a minimal example of turning all flex layouts to normal block layouts.
+
+*/
+@media (max-width: 40em) {
+	.layout {
+		display: block;
+	}
 }

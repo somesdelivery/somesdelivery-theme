@@ -1,0 +1,15 @@
+{% extends 'base.twig' %}
+
+{% block content %}
+	<div class='container container--padded'>
+
+		{% include 'components/masthead-simple.twig' %}
+
+		{% for post in posts %}
+			{% include ['components/tease-result.twig'] %}
+		{% endfor %}
+		{% if pagination %}
+			{% include 'components/pagination.twig' %}
+		{% endif %}
+	</div>
+{% endblock %}

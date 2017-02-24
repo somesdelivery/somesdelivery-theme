@@ -1,0 +1,43 @@
+body {
+	border: none;
+	font-size: 90%;
+}
+
+.grid {
+	display: block;
+}
+
+.grid .col {
+	width: auto !important;
+	margin: 0 0 1em !important;
+}
+
+header {
+	text-align: center;
+}
+
+.header-logo {
+	margin: 0.5em 0;
+}
+
+.header-logo img {
+	height: 2.5em;
+}
+
+header nav {
+	display: block;
+	margin: 1em 0;
+}
+
+.masthead {
+	margin: 1.5em 0;
+}
+
+.masthead__title {
+	font-size: 3em;
+	font-weight: 300;
+}
+
+.content__intro {
+	width: auto;
+}

@@ -1,0 +1,9 @@
+<div class='teasebox teasebox--result'>
+	<div class='teasebox__info'>
+		{% if post.parent %}
+			<div class='teasebox__meta'><a href="{{post.parent.link}}">{{post.parent.title}}</a></div>
+		{% endif %}
+		<h2 class='teasebox__title'><a href="{{post.link}}">{{post.title}}</a></h2>
+		<p class='teasebox__desc'>{{ post.get_preview(50, false, '') }}</p>
+	</div>
+</div>
