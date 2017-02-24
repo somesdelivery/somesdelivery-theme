@@ -4,14 +4,14 @@
 	{% set bio = post.get_field('intervievat_bio') %}
 	{% set data_interviu = post.get_field('interviu_data') %}
 
-	<div class='grid'>
-		<div class='col'>
+	<div class='layout layout--hbox'>
+		<div class='layout__item'>
 			{% if imagine %}
 			<div class='author__thumb' style='background-image:url("{{ TimberImage(imagine).src | resize(400) }}")'>
 			</div>
 			{% endif %}
 		</div>
-		<div class='col'>
+		<div class='layout__item'>
 			{% if nume %}
 			<h4 class='author__name'>{{nume}}</h4>
 			{% endif %}

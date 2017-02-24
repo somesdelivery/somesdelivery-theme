@@ -1,5 +1,15 @@
-{% extends "base.twig" %}
+{% extends "page.twig" %}
 
-{% block content %}
-	Sorry, we couldn't find what you're looking for.
+{% block content_title %}
+	{% 
+		include 'components/masthead-simple.twig' with {
+			'title': 'Ne-am rătăcit'
+		}
+	%}
+{% endblock %}
+
+{% block content_body %}
+	<div class='content__intro'>
+		Ne pare rău, pagina pe care o căutați nu există. Dacă credeți că este o eroare, vă rugăm să ne dați de știre!
+	</div>
 {% endblock %}

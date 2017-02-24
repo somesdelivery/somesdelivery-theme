@@ -3,11 +3,11 @@ body {
 	font-size: 90%;
 }
 
-.grid {
+.layout {
 	display: block;
 }
 
-.grid .col {
+.layout__item {
 	width: auto !important;
 	margin: 0 0 1em !important;
 }
