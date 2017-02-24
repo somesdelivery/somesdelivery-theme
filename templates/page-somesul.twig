@@ -1,25 +1,23 @@
 {% extends "page.twig" %}
 
 {% block content_body %}
-
 	{% if interviuri %}
-		<h3>Interviuri</h3>
-
+		<h3>Someșul povestit: interviuri</h3>
 		{% if interviuri.children('parent') | length %}
-			<div class='grid-3'>
+			<div class='grid grid-3'>
 			{% for interviu in interviuri.children('parent') %}
 				<div class='col'>
-		        	{% include 'tease-interviu.twig' %}
+		        	{% include 'components/tease-interviu.twig' %}
 		    	</div>
 		    {% endfor %}
 			</div>
 		{% endif %}
 	{% endif %}
 
-	<h3>O privire spre Someș</h3>
+	<h3>Articole</h3>
 
 	{% 
-		include 'tease-post.twig' with {
+		include 'components/tease-post.twig' with {
 			'post': povestire
 		} 
 	%}

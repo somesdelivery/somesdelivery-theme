@@ -1,15 +1,12 @@
 {% extends "base.twig" %}
 
-{% block title %}
-{% endblock %}
-
 {% block content %}
-	<div class='container'>
+	<div class='container container--padded'>
 		{% for row in posts | batch(2) %}
-		<div class='grid-2'>
+		<div class='grid grid-2'>
 			{% for post in row %}
 			<div class='col'>
-				{% include ['tease-'~post.post_type~'.twig', 'tease.twig'] %}
+				{% include ['components/tease-'~post.post_type~'.twig', 'components/tease.twig'] %}
 			</div>
 			{% endfor %}
 		</div>

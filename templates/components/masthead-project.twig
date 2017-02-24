@@ -1,0 +1,13 @@
+{% set categorie = TimberTerm(post.get_field('categorie_proiect')) %}
+{% set editie = TimberPost(post.get_field('editia')) %}
+
+<div class='masthead'>
+	<h1 class="masthead__title">{{post.title }}</h1>
+	<ul class='masthead__meta'>
+		<li><span>Ediția</span> <a href='{{ editie.link }}'>{{ editie.title }}</a></li>
+		<li><span>Tip</span> <a href='{{categorie.link}}'>{{ categorie.title }}</a></li>
+		{% if post.get_field('echipa') %}
+		<li><span>Echipa</span> {{ post.get_field('echipa') }}</li>
+		{% endif %}
+	</ul>
+</div>

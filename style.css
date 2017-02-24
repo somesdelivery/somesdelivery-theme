@@ -9,7 +9,7 @@ License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
 
-@font-face {
+/*@font-face {
 	font-family: 'Bebas Kai';
 	src: url('./static/fonts/bebas-kai/314FDC_0_0.eot');
 	src: 
@@ -17,7 +17,12 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 		url('./static/fonts/bebas-kai/314FDC_0_0.woff2') format('woff2'),
 		url('./static/fonts/bebas-kai/314FDC_0_0.woff') format('woff'),
 		url('./static/fonts/bebas-kai/314FDC_0_0.ttf') format('truetype');
-}
+}*/
+
+/*
+	General styles
+	------------------------------------
+*/
 
 html {
     -webkit-text-size-adjust: 100%; /* Prevent font scaling in landscape while allowing user zoom */
@@ -30,14 +35,6 @@ body {
 	color: #404040;
 	font-weight: 300;
 	border: 0.75em solid #fff;
-}
-
-.content {
-	background-color: #f3f3f3;
-}
-
-.content-wrapper {
-	padding: 2em 0;
 }
 
 strong, h1, h2, h3, h4, h5, h6 {
@@ -53,17 +50,65 @@ a {
 	text-decoration: none;
 }
 
-.container {
-	max-width: 56em;
-	margin: 0 auto;
+/* 
+	Header
+	--------------------------------------
+*/
+
+header {
+	background: #06244b;
+	/*text-align: center;*/
+	padding: 1em;
 }
 
-.two-thirds {
-	width: 66.66%;
+.header-logo {
+	display: inline-block;
+	vertical-align: middle;
+	margin: 0 1em 0 0;
+}
+
+.header-logo img {
+	height: 1.75em;
+	display: block;
+}
+
+header nav {
+	font-size: 0.9em;
+	display: inline-block;
+	vertical-align: middle;
+	font-family: 'Roboto Condensed', Helvetica, Arial, sans-serif;
+}
+
+header nav ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	/*text-transform: lowercase;*/
+	/*font-variant: small-caps;*/
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	font-weight: 300;
+}
+
+header nav li {
+	display: inline-block;
+	margin: 0 1em;
+}
+
+header nav a {
+	color: #fff;
+	display: block;
+	padding: 0.25em 0;
+}
+
+header nav .current-menu-item > a,
+body.single-proiect .menu-item-object-proiect,
+body.single-editie .menu-item-object-editie {
+	font-weight: bold;
 }
 
 /* 
-	FOOTER 
+	Footer 
 	--------------------------------------
 */
 
@@ -99,80 +144,25 @@ footer {
 }
 
 /* 
-	HEADER
-	--------------------------------------
+	Content styles
+	-------------------------------
 */
 
-header {
-	background: #06244b;
-	/*text-align: center;*/
-	padding: 1em;
+.content {
+	background-color: #f3f3f3;
 }
 
-.header-logo {
-	display: inline-block;
-	vertical-align: middle;
-	margin: 0 1em 0 0;
+.container {
+	max-width: 54em;
+	margin: 0 auto;
 }
 
-.header-logo img {
-	height: 1.75em;
-	display: block;
+.container--padded {
+	padding: 1.5em 0;
 }
 
-header nav {
-	/*font-size: 0.9em;*/
-	display: inline-block;
-	vertical-align: middle;
-	font-family: 'Roboto Condensed', Helvetica, Arial, sans-serif;
-}
-
-header nav ul {
-	list-style: none;
-	margin: 0;
-	padding: 0;
-	/*text-transform: lowercase;*/
-	/*font-variant: small-caps;*/
-	text-transform: uppercase;
-	letter-spacing: 0.1em;
-	font-weight: 300;
-}
-
-header nav li {
-	display: inline-block;
-	margin: 0 1em;
-}
-
-/*
-header nav li:last-child {
-	margin-left: 3em;
-}
-*/
-
-header nav a {
-	color: #fff;
-	display: block;
-	padding: 0.25em 0;
-}
-
-header nav .current-menu-item > a,
-body.single-proiect .menu-item-object-proiect,
-body.single-editie .menu-item-object-editie {
-	font-weight: bold;
-}
-
-
-.article-title {
-	font-size: 4em;
-	font-weight: 300;
-	letter-spacing: -0.02em;
-	margin: 0;
-	line-height: 1;
-}
-
-.article-meta {
-	text-align: center;
-	margin: 0 0 2em;
+.two-thirds {
+	width: 66.66%;
 }
 
 .post-type-proiect .article-body {
@@ -226,6 +216,74 @@ article .wp-caption {
 	transform: translate(0,-50%);
 }
 
+.tease-home {
+	padding: 2em 0;
+	font-size: 1.2em;
+	line-height: 1.3;
+}
+
+.wp-caption-text {
+	font-size: 0.85em;
+	color: #777;
+}
+
+/*
+	Component: Masthead
+	---------------------------
+*/
+
+.masthead {
+	text-align: center;
+	margin: 3em 0;
+}
+
+.masthead__preamble {
+	color: #999;
+	font-family: 'Roboto Condensed', 'Roboto', sans-serif;
+	margin-bottom: 1em;
+	font-size: 1.2em;
+	border-bottom: 0.3em solid #eee;
+	display: inline-block;
+	line-height: 2;
+}
+
+.masthead__title {
+	font-size: 4em;
+	font-weight: 300;
+	letter-spacing: -0.02em;
+	margin: 0;
+	line-height: 1;
+}
+
+.masthead__meta {
+	list-style: none;
+	margin: 1em 0 0;
+	padding: 0;
+}
+
+.masthead__meta li {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.masthead__meta li span {
+	font-family: 'Roboto Condensed', 'Bebas Kai';
+	font-weight: 700;
+	display: inline-block;
+	margin-right: 0.25em;
+	text-transform: uppercase;
+}
+
+/*
+	PROJECT PAGE
+	-----------------------------------
+*/
+
+.content__intro {
+	font-size: 1.4em;
+	text-align: center;
+	margin: 2.15em 0;
+}
 
 /* 
 	GALLERY
@@ -250,83 +308,25 @@ article .wp-caption {
 	margin: 1em 0;
 }
 
-.project-meta {
-	list-style: none;
-	margin: 1em 0;
-	padding: 0;
-}
-
-.project-meta li {
-	display: inline-block;
-	margin-right: 1em;
-}
-
-.project-meta span {
-	font-family: 'Roboto Condensed', 'Bebas Kai';
-	font-weight: 700;
-	display: inline-block;
-	margin-right: 0.25em;
-	text-transform: uppercase;
-}
-
-/* PROIECTE
---------------------------------------
+/* 
+	PROIECTE
+	--------------------------------------
 */
 
 .post-type-archive-proiect .grid {
 	margin: 1.5em 0;
 }
 
-.tease-proiect {
-	background: #fff;
-	height: 100%;
-	box-shadow: 0 0.3em 0.2em rgba(0,0,0,0.05);
-	border-radius: 0.25em;
-	overflow: hidden;
-}
-
-.tease-proiect h2 {
-	font-family: 'Roboto Condensed', 'Bebas Kai';
-	font-weight: 400;
-	line-height: 1.1;
-	margin: 0 0 0.5em;
-	/*text-transform: uppercase;*/
-}
-
-.tease-proiect__thumb {
-	display: block;
-}
-
-.tease-proiect__desc {
-	padding: 1em;
-}
-
-.tease-proiect p {
-	margin: 0;
-	font-size: 0.9em;
-}
-
-.tease-proiect a {
-	/*color: inherit;*/
-}
-
-.tease-proiect a:hover {
-	text-decoration: underline;
-}
-
-.tease-proiect img {
-	width: 100%;
-}
+/* 
+	PROGRAM EDIȚIE
+	-------------------------------------
+*/
 
 .harta-editie {
 	background: #06244b;
 	padding: 2em;
 	margin: 2em 0;
 }
-
-/* PROGRAM EDIȚIE
--------------------------------------
-*/
 
 .program-editie {
 	margin: 2em 0;
@@ -393,8 +393,8 @@ article .wp-caption {
 }
 
 /*
- ARHIVA EDIȚII
- --------------------------
+	ARHIVA EDIȚII
+	--------------------------
 */
 
 .editie-cover {
@@ -509,13 +509,44 @@ article .wp-caption {
 	color: #fff;
 }
 
-/* Interviuri */
-
-.interviu-info {
-	background: #f0f0f0;
-	padding: 1em;
-	margin: 1em 0;
+.section--light {
+	background: #f3f3f3;
 }
+
+/* 
+	Component: author box
+	-------------------------
+*/
+
+.author {
+	font-size: 0.9em;
+	color: #777;
+	padding: 1em 0;
+}
+
+.author__thumb {
+	width: 12em;
+	height: 12em;
+	border-radius: 50%;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+	float: left;
+	margin-right: 2em;
+}
+
+
+.author__name {
+	margin: 0;
+	font-size: 1.2em;
+}
+
+.author__bio {
+	margin: 0.75em 0;
+}
+
+.author__date {}
+
 
 /* 
 	HERO IMAGE
@@ -617,13 +648,50 @@ article .wp-caption {
 	-ms-transition: opacity 0.2s, visibility 0.2s;
 }
 
-.tease-home {
-	padding: 2em 0;
-	font-size: 1.2em;
-	line-height: 1.3;
+
+/* 
+	COMPONENT: Teasebox
+	------------------------------------------
+*/
+
+.teasebox {
+	background: #fff;
+	height: 100%;
+	box-shadow: 0 0.3em 0.2em rgba(0,0,0,0.05);
+	border-radius: 0.25em;
+	overflow: hidden;
 }
 
-.wp-caption-text {
-	font-size: 0.85em;
-	color: #777;
+.teasebox__title {
+	font-family: 'Roboto Condensed', 'Bebas Kai';
+	font-weight: 400;
+	line-height: 1.1;
+	margin: 0 0 0.5em;
+}
+
+.teasebox__thumb {
+	display: block;
+}
+
+.teasebox__info {
+	padding: 1em;
+}
+
+.teasebox__desc {
+	margin: 0;
+	font-size: 0.9em;
+}
+
+.teasebox__meta {
+	color: #999;
+	font-size: 0.8em;
+	margin: 0;
+}
+
+.teasebox a:hover {
+	text-decoration: underline;
+}
+
+.teasebox__thumb img {
+	width: 100%;
 }

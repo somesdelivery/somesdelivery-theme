@@ -6,30 +6,13 @@
 
 {% block hero %}
 	<div class='hero-image' style='background-image: url("{{post.thumbnail.src | resize(2000)}}")'>
-		<div class='article-meta project-meta'>
-			{% if post.parent %}
-			<h2 class='article-parent-title'>
-				<a href='{{post.parent.link}}'>{{post.parent.title}}</a>
-			</h2>
-			{% endif %}
-			<h1 class="article-title">{{post.title}}</h1>
-		</div>
+		{% include 'components/masthead-simple.twig' %}
 	</div>
 {% endblock %}
 
 {% block content %}
 	<article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
 		<section class="article-content">
-			
-			<!--
-			{% if post.children | length %}
-			<ul class='article-subpages'>
-				 {% for child in post.children('parent') %}
-			        <li><a href="{{child.link}}"><span>{{child.title}}</span></a></li>
-			    {% endfor %}
-			</ul>
-			{% endif %}
-			-->
 
 			<div class='container'>
 

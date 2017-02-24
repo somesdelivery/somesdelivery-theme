@@ -1,6 +1,6 @@
 {% block html_head_container %}
 
-{% include 'html-header.twig' %}
+{% include 'components/html-header.twig' %}
 	{% block head %}
 	{% endblock %}
 	</head>
@@ -16,42 +16,27 @@
 						</a>
 					</h1>
 					<nav id="nav-main" class="nav-main" role="navigation">
-						{% include "menu.twig" with {'menu': menu.get_items} %}
+						{% include "components/menu.twig" with {'menu': menu.get_items} %}
 					</nav><!-- #nav -->
 				<!--</div>-->
 			{% endblock %}
 		</header>
 
-		<section role="main" class="content content-wrapper">
+		<section role="main" class="content">
 
-			{% block hero %} <!-- HERO GOES HERE --> {% endblock %}
-			
-			<div class="{{sidebar_class}}">
-				
-				{% block title %}
-					{% if title %}
-						<div class='article-meta'>
-							<h1 class='article-title'>{{title}}</h1>
-						</div>
-					{% endif %}
-				{% endblock %}
+			{% block hero %} 
+				<!-- HERO GOES HERE --> 
+			{% endblock %}
 
-				{% block content %}
-					Sorry, no content
-				{% endblock %}
-			
-			</div>
-			{% if sidebar %}
-				<aside class="layout-sidebar">
-					{{sidebar}}
-				</aside>
-			{% endif %}
+			{% block content %}
+				Sorry, no content
+			{% endblock %}
 		</section>
 
 		{% block footer %}
 			<footer id="footer">
 				<div class='container'>
-					{% include 'footer.twig' %}
+					{% include 'components/footer.twig' %}
 				</div>
 			</footer>
 			{{ function('wp_footer') }}

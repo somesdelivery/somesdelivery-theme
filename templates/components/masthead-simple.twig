@@ -1,0 +1,9 @@
+{% if post %}
+	{% set title = post.title %}
+{% endif %}
+
+{% if title %}
+	<div class='masthead'>
+		<h1 class='masthead__title'>{{title}}</h1>
+	</div>
+{% endif %}

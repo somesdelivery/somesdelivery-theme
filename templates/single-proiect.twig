@@ -1,25 +1,18 @@
 {% extends "base.twig" %}
 
 {% block content %}
-	<div class="content-wrapper">
+	<div class='container container--padded'>
 		<article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
-			<section class="article-content">
-				<div class='article-meta project-meta'>
-					{% set categorie = TimberTerm(post.get_field('categorie_proiect')) %}
-					<h1 class="article-title">{{post.title }}</h1>
-					<ul class='project-meta'>
-						{% set editie = TimberPost(post.get_field('editia')) %}
-						<li><span>Ediția</span> <a href='{{ editie.link }}'>{{ editie.title }}</a></li>
-						<li><span>Tip</span> <a href='{{categorie.link}}'>{{ categorie.title }}</a></li>
-						{% if post.get_field('echipa') %}
-						<li><span>Echipa</span> {{ post.get_field('echipa') }}</li>
-						{% endif %}
-					</ul>
-				</div>
-				<div class="article-body">
+		
+				<!-- Project title -->
+				{% include 'components/masthead-project.twig' %}
+
+				<!-- Project intro -->
+				<div class='content__intro'>
 					{{post.excerpt | default(post.content) }}
 				</div>
 
+				<!-- Project gallery -->
 				<div class='gallery project-gallery'>
 					{% for image in post.get_field('galerie') %}
 					<figure class='gallery-item project-gallery-item'>
@@ -28,10 +21,9 @@
 					</figure>
 					{% endfor %}
 				</div>
-
-			</section>
+				
 		</article>
-	</div><!-- /content-wrapper -->
+	</div>
 
 	{% include 'include/slideshow-script.twig' %}
 {% endblock %}

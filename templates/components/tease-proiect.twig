@@ -1,0 +1,11 @@
+{% block content %}
+	<div class='teasebox'>
+		<a class='teasebox__thumb' href="{{post.link}}">
+			<img src="{{post.thumbnail.src | default(default_thumbnail) | resize(600, 400) }}" alt='{{post.title}}'/>
+		</a>
+		<div class='teasebox__info'>
+			<h2 class='teasebox__title'><a href="{{post.link}}">{{post.title}}</a></h2>
+			<p class='teasebox__desc'>{{post.get_preview(50, false, "")}}</p>
+		</div>
+	</div>
+{% endblock %}

@@ -3,22 +3,14 @@
 	align-items: stretch;
 }
 
-.grid .col {
-	flex: 1;
-}
-
-.grid-2, 
-.grid-3 {
-	display: flex;
-	/*justify-content: space-between;*/
-}
-
 .grid-2 .col {
+	flex-basis: 48%;
 	width: 48%;
 	margin-right: 2%;
 }
 
 .grid-3 .col {
+	flex-basis: 31%;
 	width: 31%;
 	margin-right: 2.33%;
 }

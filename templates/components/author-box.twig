@@ -1,0 +1,28 @@
+<div class='author'>
+	{% set nume = post.get_field('intervievat_nume') %}
+	{% set imagine = post.get_field('intervievat_imagine') %}
+	{% set bio = post.get_field('intervievat_bio') %}
+	{% set data_interviu = post.get_field('interviu_data') %}
+
+	<div class='grid'>
+		<div class='col'>
+			{% if imagine %}
+			<div class='author__thumb' style='background-image:url("{{ TimberImage(imagine).src | resize(400) }}")'>
+			</div>
+			{% endif %}
+		</div>
+		<div class='col'>
+			{% if nume %}
+			<h4 class='author__name'>{{nume}}</h4>
+			{% endif %}
+
+			{% if bio %}
+			<div class='author__bio'>{{ bio }}</div>
+			{% endif %}
+
+			{% if data_interviu %}
+			<p class='author__date'>{{ data_interviu | date('F Y') }}</p>
+			{% endif %}
+		</div>
+	</div>
+</div>
