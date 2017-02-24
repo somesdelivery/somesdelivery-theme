@@ -2,6 +2,13 @@
 
 {% block content %}
 	<div class='container container--padded'>
+
+		{% 
+			include 'components/masthead-simple.twig' with {
+				'title': 'Edițiile Someș Delivery'
+			} 
+		%}
+
 		{% for row in posts | batch(2) %}
 		<div class='grid grid-2'>
 			{% for post in row %}

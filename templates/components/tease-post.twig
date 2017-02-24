@@ -1,14 +1,14 @@
-{% block content %}
-	<div class='teasebox'>
-		<a class='teasebox__thumb' href="{{post.link}}">
-			{% if post.thumbnail.src %}
-				<img src="{{post.thumbnail.src}}" />
-			{% endif %}
-		</a>
-		<div class='teasebox__info'>
+<div class='teasebox'>
+	<a class='teasebox__thumb' href="{{post.link}}">
+		{% if post.thumbnail.src %}
+			<img src="{{post.thumbnail.src}}" />
+		{% endif %}
+	</a>
+	<div class='teasebox__info'>
+		{% if not is_page %}
 			<p class='teasebox__meta'>{{ post.date }}</p>
-			<h2 class='teasebox__title'><a href="{{post.link}}">{{post.title}}</a></h2>
-			<p class='teasebox__desc'>{{ post.get_preview(25, false, 'Citește mai departe') }}</p>
-		</div>
+		{% endif %}
+		<h2 class='teasebox__title'><a href="{{post.link}}">{{post.title}}</a></h2>
+		<p class='teasebox__desc'>{{ post.get_preview(25, false, 'Citește mai departe') }}</p>
 	</div>
-{% endblock %}
+</div>
