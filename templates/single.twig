@@ -1,3 +1,5 @@
+{% set page_theme = post.get_field('page_theme') | default('theme-longread') %}
+	
 {% extends "page.twig" %}
 
 {% block content_title %}

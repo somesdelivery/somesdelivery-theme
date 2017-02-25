@@ -20,9 +20,13 @@ class SomesDeliverySite extends TimberSite {
 	const POSTS_PER_ARCHIVE_PAGE = 12;
 
 	function __construct() {
-		add_theme_support( 'post-formats' );
-		add_theme_support( 'post-thumbnails' );
-		add_theme_support( 'menus' );
+
+		// Theme configuration
+		add_theme_support('post-formats');
+		add_theme_support('post-thumbnails');
+		add_theme_support('menus');
+		add_theme_support('html5', array('search-form', 'comment-form', 'comment-list', 'gallery', 'caption'));
+		
 		add_filter( 'timber_context', array( $this, 'add_to_context' ) );
 		add_filter( 'get_twig', array( $this, 'add_to_twig' ) );
 
@@ -32,8 +36,9 @@ class SomesDeliverySite extends TimberSite {
 		// Support for uploading SVGs into Wordpress
 		add_filter( 'upload_mimes', array( $this, 'custom_mime_types' ) );
 
-		add_action( 'init', array( $this, 'register_post_types' ) );
-		add_action( 'init', array( $this, 'register_taxonomies' ) );
+		add_action('init', array( $this, 'register_post_types' ));
+		add_action('init', array( $this, 'register_taxonomies' ));
+		add_action('init', array( $this, 'register_shortcodes' ));
 		add_action('acf/init', array( $this, 'advanced_custom_fields_init'));
 		parent::__construct();
 	}
@@ -50,6 +55,11 @@ class SomesDeliverySite extends TimberSite {
 	function advanced_custom_fields_init() {
 		// register Google API key to be able to use the Google Map custom field
 		acf_update_setting('google_api_key', 'AIzaSyDhQhOG5CLH0Ccn7H4EdJCkwMyggfkOePo');
+	}
+
+	function register_shortcodes() {
+		add_shortcode('rand', array($this, 'shortcode_rand'));
+		add_shortcode('coloana', array($this, 'shortcode_coloana'));
 	}
 
 	function configure_get_posts($query) {
@@ -182,6 +192,25 @@ class SomesDeliverySite extends TimberSite {
 				'slug' => 'categorii'
 			)
 		));
+	}
+
+	/* 
+		Shortcodes
+		---------------------------------------
+	*/
+
+	function shortcode_rand($attrs, $content = '') {
+		$context = array();
+		$context['content'] = apply_filters('the_content', $content);
+		$context['attrs'] = $attrs;
+		return Timber::compile('shortcodes/rand.twig', $context);
+	}
+
+	function shortcode_coloana($attrs, $content = '') {
+		$context = array();
+		$context['content'] = apply_filters('the_content', $content);
+		$context['attrs'] = $attrs;
+		return Timber::compile('shortcodes/coloana.twig', $context);
 	}
 }
 
