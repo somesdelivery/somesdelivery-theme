@@ -4,7 +4,7 @@
 	{% if interviuri %}
 		<h3>Someșul povestit: interviuri</h3>
 		{% if interviuri.children('parent') | length %}
-			<div class='layout layout--grid layout--1-3'>
+			<div class='layout layout--grid'>
 			{% for interviu in interviuri.children('parent') %}
 				<div class='layout__item'>
 		        	{% include 'components/tease-interviu.twig' %}

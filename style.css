@@ -784,17 +784,12 @@ article .wp-caption {
 
 .layout--grid {
 	justify-content: space-between;
-	margin: 1.5em 0;
+	margin: 1.5em -0.5em;
 }
 
-.layout--1-2 .layout__item {
-	width: 49%;
-	flex-basis: 49%;
-}
-
-.layout--1-3 .layout__item {
-	width: 32%;
-	flex-basis: 32%;
+.layout--grid .layout__item {
+	flex: 1;
+	margin: 0 0.5em;
 }
 
 /*
@@ -810,6 +805,14 @@ article .wp-caption {
 */
 .layout__item {
 	/*overflow: hidden;*/
+}
+
+.layout__item :first-child {
+	margin-top: 0;
+}
+
+.layout__item :last-child {
+	margin-bottom: 0;
 }
 
 /*

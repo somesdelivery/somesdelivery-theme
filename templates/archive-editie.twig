@@ -10,7 +10,7 @@
 		%}
 
 		{% for row in posts | batch(2) %}
-		<div class='layout layout--grid layout--1-2'>
+		<div class='layout layout--grid'>
 			{% for post in row %}
 			<div class='layout__item'>
 				{% include ['components/tease-'~post.post_type~'.twig', 'components/tease.twig'] %}

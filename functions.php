@@ -30,6 +30,22 @@ class SomesDeliverySite extends TimberSite {
 		add_filter( 'timber_context', array( $this, 'add_to_context' ) );
 		add_filter( 'get_twig', array( $this, 'add_to_twig' ) );
 
+		/* 
+			Remove WordPress' auto-paragraph filter that messes up
+			the shortcodes, and add it back _after_ the shortcodes
+			have had the chance to run. This means we need to call
+			`wpautop` manually in all our shortcodes.
+
+			Not sure about the side-effects this can introduce,
+			but fingers crossed.
+
+			Reference: https://wp-mix.com/wordpress-disable-extra-p-tags-shortcodes/
+		*/
+		remove_filter( 'the_content', 'wpautop' );
+		remove_filter( 'the_excerpt', 'wpautop' );
+		add_filter('the_content', 'wpautop', 11);
+		add_filter('the_excerpt', 'wpautop', 11);
+
 		
 		add_action( 'pre_get_posts', array( $this, 'configure_get_posts' ) );
 
@@ -199,17 +215,17 @@ class SomesDeliverySite extends TimberSite {
 		---------------------------------------
 	*/
 
-	function shortcode_rand($attrs, $content = '') {
+	function shortcode_rand($atts, $content = '') {
 		$context = array();
-		$context['content'] = apply_filters('the_content', $content);
-		$context['attrs'] = $attrs;
+		$context['content'] = do_shortcode(wpautop(trim($content)));
+		$context['atts'] = $atts;
 		return Timber::compile('shortcodes/rand.twig', $context);
 	}
 
-	function shortcode_coloana($attrs, $content = '') {
+	function shortcode_coloana($atts, $content = '') {
 		$context = array();
-		$context['content'] = apply_filters('the_content', $content);
-		$context['attrs'] = $attrs;
+		$context['content'] = do_shortcode(wpautop(trim($content)));
+		$context['atts'] = $atts;
 		return Timber::compile('shortcodes/coloana.twig', $context);
 	}
 }
