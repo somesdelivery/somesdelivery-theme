@@ -35,6 +35,7 @@ body {
 	color: #404040;
 	font-weight: 300;
 	border: 0.75em solid #fff;
+	font-size: 105%;
 }
 
 strong, h1, h2, h3, h4, h5, h6 {
@@ -49,6 +50,19 @@ input, select, textarea {
 a {
 	color: #009eff;
 	text-decoration: none;
+}
+
+strong, b {
+	font-weight: bold;
+}
+
+em, i {
+	font-style: italic;
+}
+
+figure {
+	margin: 1.5em 0;
+	max-width: 100%;
 }
 
 /* 
@@ -192,10 +206,6 @@ article img {
 	height: auto;
 }
 
-article .wp-caption {
-	max-width: 100%;
-}
-
 .article-subpages {
 	list-style: none;
 	padding: 0;
@@ -246,6 +256,12 @@ article .wp-caption {
 .masthead {
 	/*text-align: center;*/
 	margin: 3em 0;
+}
+
+.masthead--editie {
+	margin: -4em -1.5em 3em;
+	padding: 1.5em;
+	background: yellow;
 }
 
 .masthead__preamble {
@@ -321,16 +337,33 @@ article .wp-caption {
 	margin: 1em 0;
 }
 
+/*
+	Component: Section
+	------------------------------------
+*/
+
+.section {
+	padding: 1.5em 0;
+}
+
+.section--theme-dark {
+	background: #06244b;
+	color: #fff;
+}
+
+/*
+	Component: SVG Map
+	-------------------------------------
+*/
+
+.svgmap {
+	margin: 1.5em 0;
+}
+
 /* 
 	PROGRAM EDIȚIE
 	-------------------------------------
 */
-
-.harta-editie {
-	background: #06244b;
-	padding: 2em;
-	margin: 2em 0;
-}
 
 .program-editie {
 	margin: 2em 0;
@@ -524,27 +557,17 @@ article .wp-caption {
 
 
 /* 
-	HERO IMAGE
+	Component: HERO IMAGE
+	------------------------------------
 */
 
-.hero-image {
+.hero {
 	background-color: #ccc;
 	background-position: center center;
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-attachment: fixed;
-	min-height: 20em;
-	padding: 2em;
-	/*text-align: center;*/
-	color: #fff;
-	position: relative;
-}
-
-.hero-image .article-meta {
-	position: absolute;
-	bottom: 2em;
-	left: 2em;
-	right: 2em;
+	min-height: 16em;
 }
 
 /* SLIDESHOW */
@@ -635,6 +658,7 @@ article .wp-caption {
 	box-shadow: 0 0.3em 0.2em rgba(0,0,0,0.05);
 	border-radius: 0.25em;
 	overflow: hidden;
+	position: relative;
 }
 
 .teasebox__title {
@@ -645,6 +669,11 @@ article .wp-caption {
 }
 
 .teasebox__thumb {
+	display: block;
+}
+
+.teasebox__thumb img {
+	width: 100%;
 	display: block;
 }
 
@@ -671,14 +700,29 @@ article .wp-caption {
 	color: inherit;
 }
 
-.teasebox__thumb img {
-	width: 100%;
-}
-
 .teasebox--result {
 	margin: 1.5em 0;
 }
 
+.teasebox__label {
+	padding: 0.4em 1.11em;
+	background: yellow;
+	color: #404040;
+	font-size: 0.9em;
+}
+
+.teasebox__label span,
+.teasebox__label strong,
+.teasebox__label em {
+	white-space: nowrap;
+}
+
+.teasebox__label--floating {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+}
 
 /*
 	Component: Search Box
@@ -784,12 +828,12 @@ article .wp-caption {
 
 .layout--grid {
 	justify-content: space-between;
-	margin: 1.5em -0.5em;
+	margin: 1.5em -0.75em;
 }
 
 .layout--grid .layout__item {
 	flex: 1;
-	margin: 0 0.5em;
+	margin: 0 0.75em;
 }
 
 /*
@@ -807,11 +851,11 @@ article .wp-caption {
 	/*overflow: hidden;*/
 }
 
-.layout__item :first-child {
+.layout__item > :first-child {
 	margin-top: 0;
 }
 
-.layout__item :last-child {
+.layout__item > :last-child {
 	margin-bottom: 0;
 }
 
@@ -854,4 +898,40 @@ article .wp-caption {
 
 .layout__item--height-small {
 	flex-basis: 3em;
+}
+
+/* 
+	Component: Social Media share links
+*/
+
+.social {
+	font-size: 0.9em;
+	margin: 2em 0 1em;
+	padding-top: 1em;
+	border-top: 1px solid #e0e0e0;
+	color: #555;
+}
+
+.social__label {
+	font-weight: bold;
+}
+
+.social__links {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: inline-block;
+}
+
+.social__links li {
+	display: inline-block;
+	margin-left: 0.5em;
+}
+
+.social__links a {
+	color: inherit;
+}
+
+.social__links a:hover {
+	text-decoration: underline;
 }

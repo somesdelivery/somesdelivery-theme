@@ -11,7 +11,7 @@
 
 				<!-- Project intro -->
 				<div class='content__intro'>
-					{{post.excerpt | default(post.content) }}
+					{{post.post_excerpt | default(post.content) }}
 				</div>
 
 				<!-- Project gallery -->
@@ -24,6 +24,7 @@
 					{% endfor %}
 				</div>
 				
+				{% include 'components/social-media.twig' %}
 		</article>
 	</div>
 

@@ -1,13 +1,11 @@
-{% set page_theme = 'theme-dark' %}
+{# {% set page_theme = 'theme-dark' %} #}
 
 {% extends "base.twig" %}
 
 {% set default_thumbnail = site.theme.link ~ '/static/img/default-thumbnail.png' %}
 
 {% block hero %}
-	<div class='hero-image' style='background-image: url("{{post.thumbnail.src | resize(2000)}}")'>
-		{% include 'components/masthead-simple.twig' %}
-	</div>
+	<div class='hero' style='background-image: url("{{post.thumbnail.src | resize(1600)}}")'></div>
 {% endblock %}
 
 {% block content %}
@@ -15,6 +13,13 @@
 		<section class="article-content">
 
 			<div class='container'>
+
+				{% include 'components/masthead-editie.twig' %}
+
+				<!-- Project intro -->
+				<div class='content__intro'>
+					{{post.post_excerpt }}
+				</div>
 
 				<div class="article-body">
 					{{post.content}}
@@ -37,46 +42,34 @@
 			</div>
 
 			{% if post.has_field('harta') %}
-			<div class='container'>
-				<h3>Harta tronsonului</h3>
-			</div>
-			<div class='harta-editie'>
-				<img src='{{ TimberImage(post.get_field('harta')).src }}'/>
-			</div>
-			{% endif %}
-
-
-			<div class='container'>
-			{% if post.has_field('zi_de_program') %}
-			<div class='program-editie cf'>
-			<h3>Program</h3>
-			{% for zi_de_program in post.get_field('zi_de_program') %}
-				<div class='program-editie-zi'>
-					<h3>{{ zi_de_program.ziua | date('l, j F Y') | capitalize }}</h3>
-					<table>
-						<tbody>
-							{% for eveniment in zi_de_program.eveniment %}
-							<tr>
-								<td class='event-coords'>
-									<div class='event-hours'>{{eveniment.orele}}</div>
-									<div class='event-place'>{{eveniment.locul}}</div>
-								</td>
-								<td>
-									<a href="{{eveniment.evenimentul.link}}">
-										<img src="{{eveniment.evenimentul.thumbnail.src | default(default_thumbnail) | resize(400, 300) }}" alt='{{eveniment.evenimentul.title}}'/>
-									</a>
-									<h4><a href='{{eveniment.evenimentul.link}}'>{{eveniment.evenimentul.title}}</a></h4>
-									{{eveniment.evenimentul.get_preview(50, false, '')}}
-								</td>
-							</tr>
-							{% endfor %}
-						</tbody>
-					</table>
+			<div class='section section--theme-dark'>
+				<div class='container'>
+					<h3>Harta tronsonului</h3>
+					<div class='svgmap'>
+						<img src='{{ TimberImage(post.get_field('harta')).src }}'/>
+					</div>
 				</div>
-			{% endfor %}
 			</div>
 			{% endif %}
+
+
+			{% if post.has_field('zi_de_program') %}
+			<div class='container'>
+				<h3>Program</h3>
+				{% for zi in post.get_field('zi_de_program') %}
+					<h4>{{ zi.ziua | date('l, j F Y') | capitalize }}</h4>
+					{% for event_row in zi.eveniment | batch(3) %}
+						<div class='layout layout--grid'>
+						{% for event in event_row %}
+							<div class='layout__item'>
+								{% include 'components/tease-event.twig' %}
+							</div>
+						{% endfor %}
+						</div>
+					{% endfor %}
+				{% endfor %}
 			</div>
+			{% endif %}
 
 			<div class='organizers'>
 				<div class='container'>

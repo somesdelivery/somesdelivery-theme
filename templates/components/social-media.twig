@@ -1,0 +1,15 @@
+<div class='social'>
+	<span class='social__label'>Distribuie &rarr; </span>
+	<ul class='social__links'>
+		<li>
+			<a target='_blank' href="https://www.facebook.com/sharer.php?u={{ post.link | url_encode }}">
+				Facebook
+			</a>
+		</li>
+		<li>
+			<a target='_blank' href="http://twitter.com/share?url={{ post.link | url_encode }}&text={{ post.title | url_encode }}">
+				Twitter
+			</a>
+		</li>
+	</ul>
+</div>
