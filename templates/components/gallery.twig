@@ -1,0 +1,16 @@
+<div class='gallery'>
+	<div class='gallery__nav gallery__nav--prev'>
+		<img src='{{theme.link}}/static/svg/icons/arrow-left.svg'/>
+	</div>
+	<div class='gallery__nav gallery__nav--next'>
+		<img src='{{theme.link}}/static/svg/icons/arrow-right.svg'/>
+	</div>
+	<div class='gallery__inner'>
+		{% for image in gallery %}
+		<figure class='gallery__item' style='background-image: url("{{ TimberImage(image).src | resize(1600) }}")'>
+		    {# <img src="{{ TimberImage(image).src | resize(1600) }}"/> #}
+		    <figcaption>{{image.caption}}</figcaption>
+		</figure>
+		{% endfor %}
+	</div>
+</div>

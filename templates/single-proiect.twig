@@ -15,14 +15,12 @@
 				</div>
 
 				<!-- Project gallery -->
-				<div class='gallery project-gallery'>
-					{% for image in post.get_field('galerie') %}
-					<figure class='gallery-item project-gallery-item'>
-					    <img src="{{ TimberImage(image).src | resize(1600) }}"/>
-					    <figcaption>{{image.caption}}</figcaption>
-					</figure>
-					{% endfor %}
-				</div>
+				<h3>Galerie foto</h3>
+				{% 
+					include 'components/gallery.twig' with {
+						'gallery': post.get_field('galerie')
+					}
+				%}
 				
 				{% include 'components/social-media.twig' %}
 		</article>

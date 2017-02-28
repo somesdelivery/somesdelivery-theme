@@ -1,5 +1,6 @@
-{% set base_url = site.theme.link ~ '/static/svg/logos' %}
+{% extends 'editie/organizatori-editie.twig '}
 
+{% block content %}
 <h3>Organizatori</h3>
 
 <ul>
@@ -55,3 +56,4 @@
 	<li><img src="{{base_url}}/totb.svg"></li>
 	<li><img src="{{base_url}}/arhiforum.svg"></li>
 </ul>
+{% endblock %}

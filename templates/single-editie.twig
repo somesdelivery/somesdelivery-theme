@@ -12,7 +12,7 @@
 	<article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
 		<section class="article-content">
 
-			<div class='container'>
+			<div class='container container--padded'>
 
 				{% include 'components/masthead-editie.twig' %}
 
@@ -29,14 +29,11 @@
 			
 				<h3>Galerie de imagini</h3>
 
-				<div class='gallery project-gallery'>
-					{% for image in post.get_field('galerie') %}
-					<figure class='gallery-item project-gallery-item'>
-					    <img src="{{ TimberImage(image).src | resize(1600) }}"/>
-					    <figcaption>{{image.caption}}</figcaption>
-					</figure>
-					{% endfor %}
-				</div>
+				{% 
+					include 'components/gallery.twig' with {
+						'gallery': post.get_field('galerie')
+					}
+				%}
 
 				{% endif %}
 			</div>
@@ -54,7 +51,7 @@
 
 
 			{% if post.has_field('zi_de_program') %}
-			<div class='container'>
+			<div class='container container--padded'>
 				<h3>Program</h3>
 				{% for zi in post.get_field('zi_de_program') %}
 					<h4>{{ zi.ziua | date('l, j F Y') | capitalize }}</h4>
@@ -71,11 +68,7 @@
 			</div>
 			{% endif %}
 
-			<div class='organizers'>
-				<div class='container'>
-					{% include ['editie/organizatori-editie-'~post.slug~'.twig'] ignore missing %}
-				</div>
-			</div>
+			{% include ['editie/organizatori-editie-'~post.slug~'.twig'] ignore missing %}
 
 		</section>
 	</article>
