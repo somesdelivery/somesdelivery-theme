@@ -43,3 +43,7 @@ header nav {
 .content__intro {
 	width: auto;
 }
+
+article blockquote {
+	padding: 0 1em;
+}

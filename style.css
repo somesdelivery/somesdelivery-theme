@@ -190,6 +190,11 @@ body.single-editie .menu-item-object-editie a {
 	padding: 1.5em 1em;
 }
 
+.content--narrow p {
+	max-width: 40em;
+	display: block !important;
+}
+
 .two-thirds {
 	width: 66.66%;
 }
@@ -513,7 +518,7 @@ article img {
 /* THEMES */
 
 .theme-longread .content {
-	background: #fafafa;
+	background: #fcfcfc;
 }
 
 .theme-dark .content {
@@ -998,4 +1003,35 @@ article img {
 
 .social__links a:hover {
 	text-decoration: underline;
+}
+
+/* Blockquote */
+
+article blockquote {
+	font-family: 'Roboto Condensed';
+	margin: 2em 0;
+	font-size: 1.4em;
+	line-height: 1.3;
+	padding: 0 2em;
+	color: #555;
+}
+
+article blockquote:before,
+article blockquote:after {
+	content: ' ';
+	display: block;
+	height: 0.15em;
+	background-color: #e9e9e9;
+	width: 4em;
+	margin: 1.5em auto;
+}
+
+article blockquote em,
+article blockquote cite {
+	font-family: 'Roboto';
+	font-size: 0.9em;
+	display: block;
+	text-align: right;
+	margin: 0.5em 0;
+	color: #a3a3a3;
 }

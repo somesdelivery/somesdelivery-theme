@@ -12,6 +12,9 @@
 					{% include ['components/tease-'~post.post_type~'.twig', 'components/tease.twig'] %}
 				</div>
 			{% endfor %}
+			{% if row | length < 2 %}
+				<div class='layout__item'><!-- dummy --></div>
+			{% endif %}
 			</div>
 		{% endfor %}
 		{% if pagination %}

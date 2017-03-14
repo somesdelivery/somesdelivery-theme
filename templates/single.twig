@@ -5,3 +5,14 @@
 {% block content_title %}
 	{% include 'components/masthead-post.twig' %}
 {% endblock %}
+
+{% block content_body %}
+	{% if post.post_excerpt %}
+		<div class='content__intro'>
+			{{ post.post_excerpt }}
+		</div>
+	{% endif %}
+	<div class='content--narrow'>
+		{{post.content}}
+	</div>
+{% endblock %}
