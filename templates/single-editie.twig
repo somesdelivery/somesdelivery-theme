@@ -52,7 +52,7 @@
 
 			{% if post.has_field('zi_de_program') %}
 			<div class='container container--padded'>
-				<h3>Program</h3>
+				<h3>Evenimente</h3>
 				{% for zi in post.get_field('zi_de_program') %}
 					<h4>{{ zi.ziua | date('l, j F Y') | capitalize }}</h4>
 					{% for event_row in zi.eveniment | batch(3) %}
@@ -62,11 +62,65 @@
 								{% include 'components/tease-event.twig' %}
 							</div>
 						{% endfor %}
+
+						{% if event_row | length < 3 %}
+							<div class='layout__item'><!-- dummy --></div>
+						{% endif %}
+						{% if event_row | length < 2 %}
+							<div class='layout__item'><!-- dummy --></div>
+						{% endif %}
 						</div>
 					{% endfor %}
 				{% endfor %}
 			</div>
 			{% endif %}
+
+			<div class='container container--padded'>
+				<h3>Amenajări</h3>
+				{% for row in post.get_field('amenajari') | batch(3) %}
+					<div class='layout layout--grid'>
+						{% for item in row %}
+							<div class='layout__item'>
+								{% 
+									include 'components/tease-proiect.twig' with {
+										'post': TimberPost(item.project)
+									} only
+								%}
+							</div>
+						{% endfor %}
+
+						{% if row | length < 3 %}
+							<div class='layout__item'><!-- dummy --></div>
+						{% endif %}
+						{% if row | length < 2 %}
+							<div class='layout__item'><!-- dummy --></div>
+						{% endif %}
+					</div>
+				{% endfor %}
+			</div>
+
+			<div class='container container--padded'>
+				<h3>Instalații</h3>
+				{% for row in post.get_field('instalatii') | batch(3) %}
+					<div class='layout layout--grid'>
+						{% for item in row %}
+							<div class='layout__item'>
+								{% 
+									include 'components/tease-proiect.twig' with {
+										'post': TimberPost(item.project)
+									} only
+								%}
+							</div>
+						{% endfor %}
+						{% if row | length < 3 %}
+							<div class='layout__item'><!-- dummy --></div>
+						{% endif %}
+						{% if row | length < 2 %}
+							<div class='layout__item'><!-- dummy --></div>
+						{% endif %}
+					</div>
+				{% endfor %}
+			</div>
 
 			{% include ['editie/organizatori-editie-'~post.slug~'.twig'] ignore missing %}
 
