@@ -75,6 +75,8 @@
 			</div>
 			{% endif %}
 
+			{% if post.has_field('amenajari') %}
+
 			<div class='container container--padded'>
 				<h3>Amenajări</h3>
 				{% for row in post.get_field('amenajari') | batch(3) %}
@@ -99,6 +101,9 @@
 				{% endfor %}
 			</div>
 
+			{% endif %}
+
+			{% if post.has_field('instalatii') %}
 			<div class='container container--padded'>
 				<h3>Instalații</h3>
 				{% for row in post.get_field('instalatii') | batch(3) %}
@@ -121,6 +126,7 @@
 					</div>
 				{% endfor %}
 			</div>
+			{% endif %}
 
 			{% include ['editie/organizatori-editie-'~post.slug~'.twig'] ignore missing %}
 

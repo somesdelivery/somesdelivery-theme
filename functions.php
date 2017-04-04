@@ -76,6 +76,7 @@ class SomesDeliverySite extends TimberSite {
 	function register_shortcodes() {
 		add_shortcode('rand', array($this, 'shortcode_rand'));
 		add_shortcode('coloana', array($this, 'shortcode_coloana'));
+		add_shortcode('buton', array($this, 'shortcode_buton'));
 	}
 
 	function configure_get_posts($query) {
@@ -227,6 +228,12 @@ class SomesDeliverySite extends TimberSite {
 		$context['content'] = do_shortcode(wpautop(trim($content)));
 		$context['atts'] = $atts;
 		return Timber::compile('shortcodes/coloana.twig', $context);
+	}
+
+	function shortcode_buton($atts, $content = '') {
+		$context = array();
+		$context['atts'] = $atts;
+		return Timber::compile('shortcodes/buton.twig', $context);
 	}
 }
 

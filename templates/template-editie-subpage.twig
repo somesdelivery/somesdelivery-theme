@@ -1,0 +1,49 @@
+{% set page_theme = 'theme-dark' %}
+
+{% extends "base.twig" %}
+
+{% block content %}
+	<article class="post-type-{{post.post_type}}" id="post-{{post.ID}}">
+		<div class='container container--padded'>
+			{% block content_title %}
+				{% include 'components/masthead-editie-subpage.twig' %}
+			{% endblock %}
+
+			{% block content_body %}
+				{% if post.post_excerpt %}
+					<div class='content__intro'>
+						{{ post.post_excerpt }}
+					</div>
+				{% endif %}
+				{{post.content}}
+			{% endblock %}
+
+			{% if post.disqus_enabled %}
+
+			<div id="disqus_thread"></div>
+			<script>
+
+			/**
+			*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+			*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+			/*
+			var disqus_config = function () {
+			this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+			this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+			};
+			*/
+			(function() { // DON'T EDIT BELOW THIS LINE
+			var d = document, s = d.createElement('script');
+			s.src = 'https://somesdelivery-1.disqus.com/embed.js';
+			s.setAttribute('data-timestamp', +new Date());
+			(d.head || d.body).appendChild(s);
+			})();
+			</script>
+			<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+			                                
+			{% endif %}
+
+			{% include 'components/social-media.twig' %}
+		</div>
+	</article>
+{% endblock %}
