@@ -14,13 +14,15 @@
 					{{post.post_excerpt | default(post.content) }}
 				</div>
 
-				<!-- Project gallery -->
-				<h3>Galerie foto</h3>
-				{% 
-					include 'components/gallery.twig' with {
-						'gallery': post.get_field('galerie')
-					}
-				%}
+				{% if post.get_field('galerie') | length %}
+					<!-- Project gallery -->
+					<h3>Galerie foto</h3>
+					{% 
+						include 'components/gallery.twig' with {
+							'gallery': post.get_field('galerie')
+						}
+					%}
+				{% endif %}
 				
 				{% include 'components/social-media.twig' %}
 		</article>
