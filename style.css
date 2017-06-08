@@ -496,20 +496,50 @@ figcaption {
 
 .organizers ul {
 	list-style: none;
-	margin: 1.5em 0;
+	margin: 1.5em 0 2em;
 	padding: 0;
 }
 
 .organizers li {
 	display: inline-block;
-	margin-right: 1em;
-	margin-bottom: 1em;
+	margin-right: 2em;
+	margin-bottom: 1.5em;
+	vertical-align: middle;
 }
 
 .organizers li img {
 	display: block;
-	width: 8em;
-	height: 5em;
+}
+
+.organizers__disclaimer {
+	font-size: 0.8em;
+	color: #555;
+}
+
+.organizers__textlogo {
+	font-weight: bold;
+	width: 9em;
+	line-height: 1.1;
+	display: block;
+	color: #868789;
+	font-size: 0.8em;
+}
+
+.organizers .o__3 { width: 3em; }
+.organizers .o__4 { width: 4em; }
+.organizers .o__5 { width: 5em; }
+.organizers .o__6 { width: 6em; }
+.organizers .o__7 { width: 7em; }
+.organizers .o__8 { width: 8em; }
+.organizers .o__9 { width: 9em; }
+.organizers .o__10 { width: 10em; }
+
+.organizers h3 {
+	letter-spacing: 0.2em;
+	font-weight: bold;
+	text-transform: uppercase;
+	font-size: 1em;
+	margin-bottom: 1em;
 }
 
 /* CLEARFIX

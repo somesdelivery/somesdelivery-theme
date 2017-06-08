@@ -1,8 +1,10 @@
 <div class='teasebox teasebox--event'>
+	{% if (event.orele or event.locul) %}
 	<div class='teasebox__label teasebox__label--floating'>
-			<strong>{{ event.orele }}</strong> 
-			<span>{{ event.locul }}</span>
+			{% if event.orele %}<strong>{{ event.orele }}</strong> {% endif %}
+			{% if event.locul %}<span>{{ event.locul }}</span> {% endif %}
 	</div>
+	{% endif %}
 	<a class='teasebox__thumb' href="{{event.evenimentul.link}}">
 		<img src="{{event.evenimentul.thumbnail.src | default(default_thumbnail) | resize(800, 500) }}" />
 	</a>
