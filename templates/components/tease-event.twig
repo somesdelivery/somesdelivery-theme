@@ -1,8 +1,8 @@
 <div class='teasebox teasebox--event'>
 	{% if (event.orele or event.locul) %}
-	<div class='teasebox__label teasebox__label--floating'>
-			{% if event.orele %}<strong>{{ event.orele }}</strong> {% endif %}
-			{% if event.locul %}<span>{{ event.locul }}</span> {% endif %}
+	<div class='teasebox__label'>
+			{% if event.orele %}<strong class='teasebox__time'>{{ event.orele }}</strong> {% endif %}
+			{% if event.locul %}<span class='teasebox__place'>{{ event.locul }}</span> {% endif %}
 	</div>
 	{% endif %}
 	<a class='teasebox__thumb' href="{{event.evenimentul.link}}">
@@ -12,6 +12,6 @@
 		<h2 class='teasebox__title'>
 			<a href="{{event.evenimentul.link}}">{{event.evenimentul.title}}</a>
 		</h2>
-		<p class='teasebox__desc'>{{ event.evenimentul.get_preview(25, false, '') }}</p>
+		<p class='teasebox__desc'>{{ event.evenimentul.post_excerpt }}</p>
 	</div>
 </div>

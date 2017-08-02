@@ -11,7 +11,11 @@
 
 				<!-- Project intro -->
 				<div class='content__intro'>
-					{{post.post_excerpt | default(post.content) }}
+					{{post.post_excerpt }}
+				</div>
+
+				<div class='content__body'>
+					{{ post.content }}
 				</div>
 
 				{% if post.get_field('galerie') | length %}

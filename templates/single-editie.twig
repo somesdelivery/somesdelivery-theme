@@ -54,7 +54,7 @@
 			<div class='container container--padded'>
 				<h3>Evenimente</h3>
 				{% for zi in post.get_field('zi_de_program') %}
-					<h4>{{ zi.ziua | date('l, j F Y') | capitalize }}</h4>
+					<h4 class='edition__day-header'>{{ zi.ziua | date('l, j F Y') | capitalize }}</h4>
 					{% for event_row in zi.eveniment | batch(3) %}
 						<div class='layout layout--grid'>
 						{% for event in event_row %}
