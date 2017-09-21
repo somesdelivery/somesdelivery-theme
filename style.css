@@ -397,6 +397,10 @@ figcaption {
 	margin: 1em 0;
 }
 
+.gallery__item figcaption:empty {
+	display: none;
+}
+
 /*
 	Component: Section
 	------------------------------------
@@ -1095,7 +1099,7 @@ article blockquote cite {
 
 /* Component: Button */
 
-.btn {
+.btn, input[type=button] {
 	display: inline-block;
 	padding: 0.75em 1.5em;
 	text-transform: uppercase;
@@ -1103,6 +1107,7 @@ article blockquote cite {
 	background-color: #F6E500;
 	color: #23326b !important;
 	border-radius: 0.2em;
+	border: none;
 }
 
 .btn--dark {
@@ -1115,4 +1120,31 @@ article blockquote cite {
 
 #disqus_thread {
 	margin: 2em 0;
+}
+
+/* Ninja Form plugin styles */
+
+.nf-form-title h3 {
+	font-weight: bold;
+}
+
+.nf-form-fields-required,
+.nf-field-description {
+	font-size: 0.8em;
+	color: #777;
+	margin: 0 0 1em;
+}
+
+.nf-field-label {
+	font-size: 1.8em;
+	font-weight: normal;
+	line-height: 1.1;
+}
+
+.nf-field-label label {
+	font-weight: inherit !important;
+}
+
+.ninja-forms-field {
+	padding: 0.25em;
 }
