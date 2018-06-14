@@ -56,6 +56,10 @@ class SomesDeliverySite extends TimberSite {
 		add_action('init', array( $this, 'register_taxonomies' ));
 		add_action('init', array( $this, 'register_shortcodes' ));
 		add_action('acf/init', array( $this, 'advanced_custom_fields_init'));
+
+		// Don't disable the Custom Fields meta box
+		add_filter('acf/settings/remove_wp_meta_box', '__return_false');
+
 		parent::__construct();
 	}
 

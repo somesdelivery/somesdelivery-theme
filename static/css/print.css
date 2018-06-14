@@ -1,0 +1,15 @@
+header, footer, .social, .btn {
+	display: none !important;
+}
+
+* {
+	color: #000 !important;
+}
+
+.container {
+	max-width: none !important;
+}
+
+html {
+	font-size: 12pt;
+}

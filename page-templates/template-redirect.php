@@ -4,8 +4,7 @@
 		Template Post Type: post, page, editie, proiect
 	*/
 
-	$post = new TimberPost();
-	$url = $post->redirect_to;
+	$url = get_post_meta($post->ID, 'redirect_to', true);
 	if ($url) {
 		wp_redirect($url);
 		exit();
