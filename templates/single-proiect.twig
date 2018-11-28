@@ -27,6 +27,14 @@
 						}
 					%}
 				{% endif %}
+
+				{% if post.get_field('fisier_atasat') | length %}
+					{% 
+						include 'components/attachments.twig' with {
+							'attachments': post.get_field('fisier_atasat')
+						}
+					%}
+				{% endif %}
 				
 				{% include 'components/social-media.twig' %}
 		</article>
