@@ -1,6 +1,6 @@
 # somesdelivery-theme
 
-This is the Wordpress theme for [Someș Delivery](http://somesdelivery.ro). It builds on the [Timber starter theme](https://github.com/timber/starter-theme).
+This is the Wordpress theme for [Someș Delivery](https://somesdelivery.ro). It builds on the [Timber starter theme](https://github.com/timber/starter-theme).
 
 ## Setting up a new website
 
