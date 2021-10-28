@@ -18,5 +18,5 @@
 {% endblock %}
 
 {% block content_meta %}
-	{% include ['editie/organizatori-editie-sd-2019.twig'] ignore missing %}
+	{% include ['editie/organizatori-editie-sd-'~post.slug~'.twig' ~ date('now', 'Y')~ '.twig'] ignore missing %}
 {% endblock %}
